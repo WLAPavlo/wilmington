@@ -1,0 +1,179 @@
+.logo {
+	h1 {
+		font-size: 0;
+	}
+
+	a {
+		display: inline-block;
+	}
+
+	img {
+		max-height: 150px;
+	}
+}
+
+@include media-breakpoint-down(sm) {
+
+	.navbar-toggler {
+		margin: 10px $grid-gutter-width / 2;
+		border: none;
+		background-color: transparent;
+
+		&:hover, &:focus {
+			background-color: transparent;
+		}
+
+		@include menu-icon(#fff, #fff, 26px, 20px, 3px);
+	}
+
+	.navbar {
+		background-color: $main-color;
+	}
+
+	.navbar-nav {
+		margin-left: 0;
+
+		.nav-item {
+			> a {
+				// Regular menu link
+				padding: $nav-link-padding-y $nav-link-padding-x;
+				background: $main-color; /* menu item background color */
+				color: #fff; /* menu item text color */
+
+				&:hover {
+					background: darken($main-color, 5); /* menu item background color on hover */
+				}
+			}
+
+			&.active {
+				> a, > .submenu-toggle {
+					background: lighten($main-color, 5); /* current/parent menu item background color */
+				}
+			}
+
+			&.show {
+				> a, > .submenu-toggle {
+					background: darken($main-color, 3); /* menu item background color on open dropdown */
+				}
+			}
+
+			// Dropdown toggle arrow
+			.submenu-toggle {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 40px;
+				height: 40px;
+				padding: 0;
+				border: none;
+				background-color: transparent;
+				box-shadow: none;
+
+				&::after {
+					content: '\f078';
+					font-family: $fa;
+					font-weight: 900;
+					@include position-center;
+				}
+
+				&[aria-expanded="true"] {
+					&::after {
+						content: '\f077';
+					}
+				}
+			}
+		}
+
+		// Link with dropdown toggle arrow
+		.dropdown-toggle {
+			padding-right: 40px;
+		}
+
+		.dropdown-menu {
+			a {
+				padding-left: #{$nav-link-padding-x * 1.65};
+			}
+
+			.dropdown-menu {
+				a {
+					padding-left: #{$nav-link-padding-x * 2.3};
+				}
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+
+	.navbar-nav {
+		/* Align menu items to the right */
+		justify-content: flex-end;
+		/* Align menu items to the center */
+		//justify-content: center;
+
+		margin-left: 0;
+	}
+
+	.nav-link {
+		/* Regular menu item style */
+		background-color: transparent;
+		color: $main-color;
+
+		&:hover {
+			/* menu item style on hover */
+			background: $main-color;
+			color: invert($main-color);
+		}
+	}
+
+	.nav-item {
+		&.active {
+			> a {
+				/** Style of Current page and Ancestor page. Default WP classes are replaced with `active` class
+				 *	@see class-bootstrap-navigation.php - add_nav_item_bootstrap_classes()
+				 */
+				background: $main-color;
+				color: invert($main-color);
+			}
+		}
+
+		&.menu-item-has-children {
+			> [data-toggle="dropdown"] {
+				display: none;
+			}
+
+			> a {
+				/* Style of item with dropdown */
+			}
+
+			&:hover > a {
+				/* Parent link style on dropdown hover */
+				background: invert($main-color);
+				color: $main-color;
+			}
+		}
+	}
+
+	.dropdown-menu {
+		.nav-item {
+			> a {
+				/* Regular link in dropdown */
+
+				&:hover {
+					/* Dropdown link on hover */
+				}
+			}
+
+			&.active {
+				> a {
+					/* Active menu item in dropdown */
+
+				}
+			}
+		}
+
+		.dropdown-menu {
+			/* Styles for 2nd level dropdown menu */
+		}
+	}
+}

@@ -1,0 +1,299 @@
+html {
+  height: 100%;
+}
+
+body {
+  position: static !important;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100vh;
+}
+
+main {
+  display: block;
+}
+
+.grid-container {
+  width: 100%;
+}
+
+*:last-child {
+  margin-bottom: 0;
+}
+
+/* Preloader */
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader {
+  position: fixed;
+  z-index: 100000000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: visible;
+  opacity: 1;
+  background-color: #fff;
+  color: #222;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &::before {
+      content: '\f1ce';
+      display: block;
+      font-family: $fa;
+      font-size: 40px;
+      font-weight: 900;
+
+      animation: spin 1s ease-in-out infinite;
+    }
+  }
+
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/* Position center */
+
+.position-center {
+  @include position-center();
+}
+
+/* Pagination */
+
+ul.pagination {
+  @include list-unstyled;
+  margin: 15px 0;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0;
+    line-height: 1.5;
+
+    span, a {
+      display: block;
+      padding: 0 7px;
+
+      &.current {
+        display: block;
+        background: $main-color;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* Search form */
+
+.search {
+  position: relative;
+
+  .posts-list & {
+    margin-bottom: 40px;
+  }
+}
+
+.search__input {
+  padding-right: 75px;
+}
+
+.search__submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  padding: 10px 15px;
+  cursor: pointer;
+  //font-size: 0;
+
+  &::after {
+    //content: "\f002";
+    font-family: $fa;
+    font-size: 20px;
+    font-weight: 900;
+  }
+}
+
+//use @extend %bgcover; to selector if you need background cover;
+
+%bgcover {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.bg-cover {
+  @extend %bgcover;
+}
+
+//use @extend %bgcontain; to selector if you need contain image in block;
+
+%bgcontain {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
+
+.bg-contain {
+  @extend %bgcontain;
+}
+
+.stretched-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.rel-wrap {
+  position: relative;
+}
+
+.rel-content {
+  position: relative;
+  z-index: 2;
+}
+
+.of-cover, .stretched-img {
+  object-position: 50% 50%;
+  object-fit: cover;
+  font-family: 'object-fit: cover;';
+}
+
+.two-columns {
+  @include media-breakpoint-up(md) {
+    columns: 2;
+  }
+}
+
+.three-columns {
+  @include media-breakpoint-up(md) {
+    columns: 3;
+  }
+}
+
+.jarallax {
+  position: relative;
+
+  > .jarallax-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.jarallax-inline {
+  position: relative;
+
+  > .jarallax-img {
+    position: relative;
+    z-index: -100;
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+img {
+  &[data-lazy-src] {
+    transition: opacity 0.3s ease-in-out;
+  }
+  &.pre-lazyload {
+    opacity: 0;
+  }
+
+  &.lazyloaded {
+    opacity: 1;
+  }
+}
+
+#back-to-top {
+  padding: 13px 15px 10px 15px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+
+  outline: none;
+  border: 2px solid $white;
+  background-color: $sub-color;
+  border-radius: 10px;
+
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  &.back-to-top_show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $sub-color;
+
+    .arrow {
+      &:before,
+      &:after {
+        background-color: $white;
+      }
+    }
+  }
+
+  .arrow {
+    position: relative;
+    display: inline-block;
+    width: 2px;
+    height: 30px;
+    border-radius: 9999px;
+
+    &,
+    &:before,
+    &:after {
+      background-color: $white;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: calc(50% - 1px);
+      width: 2px;
+      height: 10px;
+      border-radius: 9999px;
+      transform-origin: 50% 0;
+    }
+
+    &:before {
+      transform: rotate(40deg);
+    }
+
+    &:after {
+      transform: rotate(-40deg);
+    }
+  }
+}

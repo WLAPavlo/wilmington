@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="OPEN_SSH" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="ssh.pressable.com" id="a64ae439-047e-4e6e-86fd-347c2b78935a" port="22" customName="prssbl.dev" nameFormat="CUSTOM" username="u9cd8b561bbfcfcc1" useOpenSSHConfig="true">
+        <option name="customName" value="prssbl.dev" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

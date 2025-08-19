@@ -1,0 +1,123 @@
+.main-content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* Comments block */
+
+#comments {
+  padding-top: 30px;
+}
+
+.comment-list {
+  @include list-unstyled;
+  margin-bottom: 20px;
+}
+
+.comment {
+  position: relative;
+  margin-top: 15px;
+
+  .children {
+    list-style: none;
+  }
+}
+
+.comment-meta {
+  font-size: 14px;
+}
+
+.comment-metadata {
+  margin-top: 5px;
+  color: #666;
+}
+
+.comment-content {
+  margin-top: 15px;
+  padding-left: 15px;
+  border-left: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.reply {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+
+.comment-reply-link {
+  display: block;
+  padding: 0.33333rem 0.5rem;
+  border-radius: 0;
+  background: #777;
+  color: #fefefe;
+  font-size: 0.8rem;
+  line-height: 1;
+  white-space: nowrap;
+
+  &:hover, &:focus {
+    background-color: $main-color;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.comment-form {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.comment-notes,
+.comment-form-comment {
+  flex: 1 0 100%;
+}
+
+.comment-form-comment {
+  order: 1;
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+  flex: 1 1 auto;
+  flex-basis: calc(33.3333% - 20px);
+
+  @include media-breakpoint-down(sm) {
+    flex-basis: 100%;
+  }
+}
+
+.comment-form-author,
+.comment-form-email {
+  @include media-breakpoint-up(md) {
+    margin-right: 30px;
+  }
+}
+
+.comment-form-cookies-consent,
+.comment-form .form-submit {
+  order: 2;
+}
+
+.comment-form .form-submit {
+  flex-basis: 100%;
+}
+
+/* 404 page */
+
+.not-found {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .label {
+    background-color: $main-color;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($main-color, 8);
+      color: #fff;
+    }
+  }
+}

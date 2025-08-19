@@ -1,0 +1,140 @@
+/* ---------------------------------------
+	Accordion
+--------------------------------------- */
+
+.accordion {
+
+}
+
+.accordion-item {
+	&:last-child {
+		.accordion-item__body-inner {
+			border-bottom: 1px solid #cccccc;
+		}
+
+		.accordion-item__title {
+			&[aria-expanded="false"] {
+				border-bottom: 1px solid #cccccc;
+			}
+		}
+	}
+}
+
+.accordion-item__title {
+	position: relative;
+	margin-bottom: 0;
+	padding: 5px 25px 5px 10px;
+	border: 1px solid #cccccc;
+	border-bottom: none;
+	font-size: 18px;
+	cursor: pointer;
+
+	&::after {
+		content: '\f078';
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		font-family: $fa;
+		font-size: 14px;
+		font-weight: 900;
+		transform: translateY(-50%);
+	}
+
+	&[aria-expanded="true"] {
+		&::after {
+			content: '\f077';
+		}
+	}
+}
+
+.accordion-item__body-inner {
+	padding: 5px 10px;
+	border: 1px solid #cccccc;
+	border-bottom: none;
+}
+
+/* ---------------------------------------
+	Social networks
+--------------------------------------- */
+
+.stay-tuned {
+	@include list-unstyled;
+
+	margin-right: -5px;
+	margin-left: -5px;
+	font-size: 0;
+}
+
+.stay-tuned__item {
+	display: inline-block;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.stay-tuned__link {
+	display: block;
+
+	.fab {
+		display: block;
+		font-size: 16px;
+	}
+}
+
+/* ---------------------------------------
+	Side by side
+--------------------------------------- */
+
+.sbs-block {
+	position: relative;
+	overflow: hidden;
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	&--reverse {
+		.sbs-block__img-wrap {
+			right: 50%;
+			left: 0;
+		}
+	}
+}
+
+.sbs-block__content-wrap {
+	display: flex;
+	flex-direction: column;
+}
+
+.sbs-block__content {
+	display: flex;
+	align-items: center;
+
+	@include media-breakpoint-up(md) {
+		min-height: 400px;
+	}
+}
+
+.sbs-block__content-inner {
+	width: 100%;
+}
+
+.sbs-block__img-wrap {
+	padding: 0;
+	
+	@include media-breakpoint-up(md) {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 50%;
+		width: 50%;
+		height: 100%;
+		margin: 0;
+	}
+
+	@include media-breakpoint-down(sm) {
+		margin-bottom: 25px;
+	}
+}
+
+.sbs-block__img {
+	width: 100%;
+	height: 100%;
+}

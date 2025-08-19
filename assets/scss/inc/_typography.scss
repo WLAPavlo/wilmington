@@ -1,0 +1,192 @@
+/* ---------------------------------------
+	Typography
+--------------------------------------- */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	a {
+		color: inherit;
+	}
+}
+
+h1, .h1 {
+	/*basic heading styles*/
+}
+
+h2, .h2 {
+	/*basic heading styles*/
+}
+
+h3, .h3 {
+	/*basic heading styles*/
+}
+
+h4, .h4 {
+	/*basic heading styles*/
+}
+
+h5, .h5 {
+	/*basic heading styles*/
+}
+
+h6, .h6 {
+	/*basic heading styles*/
+}
+
+p {
+	/*basic paragraph styles*/
+	&:empty {
+		display: none;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+}
+
+ul, ol {
+	padding-left: 25px;
+	font-size: inherit;
+}
+
+ul {
+	/*basic list styles*/
+
+	li {
+		/*basic list-item styles*/
+	}
+}
+
+a {
+	transition: all 0.2s ease-in-out;
+
+	&:hover, &:focus {
+		/*basic hover and focus effects*/
+	}
+}
+
+// Basic Table
+
+table {
+	width: 100%;
+	margin-bottom: $spacer;
+	background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+	color: $table-color;
+
+	th,
+	td {
+		padding: $table-cell-padding;
+		vertical-align: top;
+		border-top: $table-border-width solid $table-border-color;
+	}
+
+	thead th {
+		vertical-align: bottom;
+		border-bottom: (2 * $table-border-width) solid $table-border-color;
+		background-color: $table-head-bg;
+		color: $table-head-color;
+	}
+
+	tbody + tbody {
+		border-top: (2 * $table-border-width) solid $table-border-color;
+	}
+}
+
+blockquote {
+	margin-bottom: $spacer;
+	padding: .5625rem 1.25rem 0 1.1875rem;
+	border-left: 1px solid #cacaca;
+}
+
+img {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+}
+
+/* ---------------------------------------
+	Forms/Inputs
+--------------------------------------- */
+
+.no-outline {
+	button, a, [tabindex] {
+		outline: none;
+	}
+}
+
+/* Placeholder styling */
+
+input, textarea {
+	&::placeholder {
+		opacity: 1;
+	}
+}
+
+/* Input Styling */
+
+[type=color],
+[type=date],
+[type=datetime-local],
+[type=datetime],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url],
+[type=week],
+textarea,
+select,
+.select-styled {
+	/* STYLES GO THERE */
+	margin-bottom: 0;
+}
+
+textarea[rows] {
+	/*Styles for TextArea*/
+	max-width: 100%;
+	height: 150px;
+}
+
+[type=number] {
+	-moz-appearance: textfield;
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+	margin: 0;
+	-webkit-appearance: none;
+}
+
+[type=checkbox],
+[type=file],
+[type=radio] {
+	margin-bottom: 0;
+
+	& + label {
+		margin-left: 5px;
+	}
+}
+
+button, .btn, .button, input[type='submit'], input[type='reset'], input[type='button'] {
+	background-color: $main-color;
+	color: #fff;
+	text-decoration: none;
+
+	&:hover, &:focus {
+		background-color: darken($main-color, 7.5);
+		color: #fff;
+	}
+}
+
+/* Button additional styles */
+
+.btn, .button {
+	&:hover, &:focus {
+		/*basic hover and focus effects*/
+	}
+}

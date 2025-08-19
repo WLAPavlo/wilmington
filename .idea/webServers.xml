@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="08be320e-ccb4-4aa5-8c86-2508322a50b6" name="prssbl.dev">
+        <fileTransfer rootFolder="/htdocs" accessType="SFTP" host="ssh.pressable.com" port="22" sshConfigId="a64ae439-047e-4e6e-86fd-347c2b78935a" sshConfig="prssbl.dev" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
