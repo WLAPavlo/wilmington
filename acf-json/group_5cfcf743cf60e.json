@@ -399,6 +399,68 @@
             "enable_opacity": 0,
             "return_format": "string",
             "allow_in_bindings": 0
+        },
+        {
+            "key": "field_footer_contact_title",
+            "label": "Footer Contact Title",
+            "name": "footer_contact_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "CONTACT US",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_footer_office_hours",
+            "label": "Office Hours",
+            "name": "footer_office_hours",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "OFFICE: MON - FRI 8AM - 5PM",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_footer_menu_columns",
+            "label": "Footer Menu Columns",
+            "name": "footer_menu_columns",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Number of menu items per column (default: 6)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 6,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 20,
+            "step": ""
         }
     ],
     "location": [

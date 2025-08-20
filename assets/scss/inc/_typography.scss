@@ -2,8 +2,28 @@
 	Typography
 --------------------------------------- */
 
+// Font utility classes for easy switching
+.font-heebo {
+	font-family: $font-heebo !important;
+}
+
+.font-karla {
+	font-family: $font-karla !important;
+}
+
+.font-poppins {
+	font-family: $font-poppins !important;
+}
+
+// Text utility classes
+.text-heebo { @include font-heebo; }
+.text-karla { @include font-karla; }
+.text-poppins { @include font-poppins; }
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $heading-font;
+
 	a {
 		color: inherit;
 	}

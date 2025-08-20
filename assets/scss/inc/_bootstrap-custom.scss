@@ -18,7 +18,7 @@ $secondary: $sub-color;
 
 // Include additional color to style button (eg. btn-violet class)
 $theme-colors: (
-	"violet": $violet,
+				"violet": $violet,
 );
 
 $white: #fff !default;
@@ -41,21 +41,21 @@ $body-bg: #fff;
 
 // Grid breakpoints
 $grid-breakpoints: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px,
-	xxl: 1640px,
+				xs: 0,
+				sm: 576px,
+				md: 768px,
+				lg: 992px,
+				xl: 1200px,
+				xxl: 1640px,
 ); // Breakpoints where container will change it max-width
 
 // Grid containers
 $container-max-widths: (
-	sm: 540px,
-	md: 720px,
-	lg: 960px,
-	xl: 1140px,
-	xxl: 1560px,
+				sm: 540px,
+				md: 720px,
+				lg: 960px,
+				xl: 1140px,
+				xxl: 1560px,
 ); // grid container max width
 
 $grid-gutter-width: 30px; // Grind columns gap (distance between columns)
@@ -71,7 +71,7 @@ $font-size-base: rem-calc(16px);
 
 $spacer: 1rem; // global margin that will applies to any text (p, ul, ol, blockquote)
 $spacers: (
-	g: $grid-gutter-width / 2
+				g: $grid-gutter-width / 2
 );
 
 // Headings
@@ -84,6 +84,7 @@ $h5-font-size: 21px;
 $h6-font-size: 19px;
 
 $headings-font-family: null; // Headings font family
+$headings-font-family: $heading-font; // Headings font family
 $headings-font-weight: 700; // Headings font weight
 $headings-color: inherit; // Headings text color
 $headings-line-height: $line-height-base; // Headings line height

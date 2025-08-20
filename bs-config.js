@@ -1,6 +1,6 @@
 const urlapi = require('url');
-const siteUrl = '%SITE_URL%', // example `http://site-url.com/`
-	themeName = '%THEME_NAME%'; // example `project-name`
+const siteUrl = 'http://ready-for-feedback3.com/internship/luhovyi/wilmington/', // example `http://site-url.com/`
+	themeName = 'wilmington'; // example `project-name`
 const URL = urlapi.parse(siteUrl);
 
 module.exports = {

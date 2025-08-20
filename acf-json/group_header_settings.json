@@ -1,0 +1,213 @@
+{
+  "key": "group_header_settings",
+  "title": "Header Settings",
+  "fields": [
+    {
+      "key": "field_partners_logos",
+      "label": "Partners Logos",
+      "name": "partners_logos",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "table",
+      "button_label": "Add Partner Logo",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_partner_logo",
+          "label": "Partner Logo",
+          "name": "partner_logo",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "40",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "preview_size": "thumbnail",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": "",
+          "parent_repeater": "field_partners_logos"
+        },
+        {
+          "key": "field_partner_text",
+          "label": "Partner Text",
+          "name": "partner_text",
+          "type": "text",
+          "instructions": "Text to display for the partner",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "parent_repeater": "field_partners_logos"
+        },
+        {
+          "key": "field_partner_link",
+          "label": "Partner Link",
+          "name": "partner_link",
+          "type": "url",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "parent_repeater": "field_partners_logos"
+        }
+      ]
+    },
+    {
+      "key": "field_header_phone",
+      "label": "Header Phone",
+      "name": "header_phone",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_header_location_text",
+      "label": "Location Text",
+      "name": "header_location_text",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Location",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_header_social_links",
+      "label": "Social Media Links",
+      "name": "header_social_links",
+      "type": "repeater",
+      "instructions": "Add social media links for header",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.33",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 5,
+      "layout": "table",
+      "button_label": "Add Social Link",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_social_platform",
+          "label": "Social Platform",
+          "name": "social_platform",
+          "type": "select",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "twitter": "Twitter",
+            "linkedin": "LinkedIn",
+            "youtube": "YouTube",
+            "tiktok": "TikTok"
+          },
+          "default_value": [],
+          "allow_null": 0,
+          "multiple": 0,
+          "ui": 0,
+          "return_format": "value",
+          "ajax": 0,
+          "placeholder": "",
+          "parent_repeater": "field_header_social_links"
+        },
+        {
+          "key": "field_social_url",
+          "label": "Social URL",
+          "name": "social_url",
+          "type": "url",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "parent_repeater": "field_header_social_links"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "theme-general-settings"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1745938527
+}

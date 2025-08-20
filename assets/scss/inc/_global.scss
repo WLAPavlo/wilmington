@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  font-family: $font;
 }
 
 body {
@@ -8,6 +9,7 @@ body {
   flex-direction: column;
   height: auto;
   min-height: 100vh;
+  font-family: $font;
 }
 
 main {

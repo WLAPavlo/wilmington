@@ -2,22 +2,32 @@
 
 $blue: #1a608b;
 $violet: #52178E;
+$teal: #00bcd4;
+$black: #000000;
 
 $text-color: #333;
 
-$main-color: $violet;
+$main-color: #00a19a;
 $sub-color: $main-color;
 
-$font: 'Open Sans', sans-serif;
-$sub-font: $font;
+// Font system - now you can use different fonts
+$font-heebo: 'Heebo', sans-serif;
+$font-karla: 'Karla', sans-serif;
+$font-poppins: 'Poppins', sans-serif;
+
+// Default fonts
+$font: $font-heebo; // Main font
+$sub-font: $font-karla; // Secondary font
+$heading-font: $font-poppins; // Headings font
+
 $fa: 'Font Awesome 5 Free';
 $fab: 'Font Awesome 5 Brands';
+
+// Font utility classes
+.font-heebo { font-family: $font-heebo !important; }
+.font-karla { font-family: $font-karla !important; }
+.font-poppins { font-family: $font-poppins !important; }
 
 // Font Awesome Vars
 $fa-font-path: "../fonts";
 $fa-font-display: swap;
-
-// Project mixins
-
-
-// Custom fonts
