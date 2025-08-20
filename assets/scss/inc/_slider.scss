@@ -15,29 +15,209 @@
 }
 
 #home-slider {
+	position: relative;
+	height: 50vh; // Changed from 100vh to 50vh
+	min-height: 400px; // Reduced minimum height
+	overflow: hidden;
+
+	@include media-breakpoint-down(md) {
+		height: 45vh; // Slightly smaller on tablets
+		min-height: 350px;
+	}
+
+	@include media-breakpoint-down(sm) {
+		height: 40vh; // Even smaller on mobile
+		min-height: 300px;
+	}
+
 	.slick-slide {
 		width: 100%;
-		height: 500px; /*define the height of slide*/
+		height: 50vh; // Changed from 100vh to 50vh
+		min-height: 400px;
 		transition: height 0.3s ease;
 
 		@include media-breakpoint-down(md) {
-			height: 400px;
+			height: 45vh;
+			min-height: 350px;
 		}
 
 		@include media-breakpoint-down(sm) {
-			height: 300px;
+			height: 40vh;
+			min-height: 300px;
 		}
 	}
 
 	.slick-slide__inner {
 		position: relative;
 		height: 100%;
-
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		@extend %bgcover;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.4);
+			z-index: 1;
+		}
 	}
 
 	.slider-caption {
-		@include position-center;
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		color: #fff;
+		max-width: 800px;
+		padding: 0 20px;
+
+		h3 {
+			font-size: 60px; // Reduced from 75px
+			font-weight: 700;
+			margin-bottom: 1.5rem;
+			line-height: 1.2;
+
+			@include media-breakpoint-down(md) {
+				font-size: 45px;
+			}
+
+			@include media-breakpoint-down(sm) {
+				font-size: 35px;
+			}
+		}
+
+		p {
+			font-size: 1.1rem; // Slightly reduced
+			margin-bottom: 2rem;
+			opacity: 0.95;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+			@include media-breakpoint-down(md) {
+				font-size: 1rem;
+				margin-bottom: 1.5rem;
+			}
+
+			@include media-breakpoint-down(sm) {
+				font-size: 0.95rem;
+				margin-bottom: 1rem;
+			}
+		}
+	}
+
+	// Navigation dots - Updated styling
+	.slick-dots {
+		position: absolute;
+		bottom: 60px; // Moved up slightly
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 3;
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+		gap: 15px; // Increased gap
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		@include media-breakpoint-down(sm) {
+			bottom: 40px;
+			gap: 12px;
+		}
+
+		li {
+			margin: 0;
+			padding: 0;
+			cursor: pointer;
+
+			&:only-child {
+				display: none;
+			}
+
+			button {
+				width: 14px; // Slightly larger
+				height: 14px;
+				border: 1px solid #fff; // Thinner border
+				border-radius: 50%;
+				background: #fff; // White background for inactive dots
+				cursor: pointer;
+				padding: 0;
+				font-size: 0;
+				transition: all 0.3s ease;
+				opacity: 0.7;
+
+				&:hover {
+					opacity: 1;
+				}
+
+				&:before {
+					display: none;
+				}
+			}
+
+			&.slick-active {
+				button {
+					background: $main-color;
+					border-color: $main-color;
+					opacity: 1;
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+
+	// Scroll down arrow - Chevron style as shown in mockup
+	.scroll-down {
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 3;
+		color: #ffffff;
+		text-decoration: none;
+		opacity: 0.8;
+		transition: all 0.3s ease;
+		animation: bounce 2s infinite;
+
+		@include media-breakpoint-down(sm) {
+			bottom: 15px;
+		}
+
+		&:hover {
+			opacity: 1;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		// Hide FontAwesome icon if present
+		i {
+			display: none;
+		}
+
+		// Double chevron arrows pointing down - as in mockup
+		&::before {
+			content: '';
+			display: block;
+			width: 12px;
+			height: 12px;
+			border-right: 1px solid #ffffff;
+			border-bottom: 1px solid #ffffff;
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			width: 12px;
+			height: 12px;
+			border-right: 1px solid #ffffff;
+			border-bottom: 1px solid #ffffff;
+			transform: rotate(45deg);
+			margin: 0 auto;
+		}
 	}
 }
 
@@ -51,22 +231,10 @@
 
 	.video {
 		pointer-events: none;
-
 		@include position-center;
 	}
 }
 
 .slick-arrow {
-	/* Slick arrows global styles */
-}
-
-.slick-dots {
-	/* Slick dots global styles */
-	font-size: 0;
-
-	li {
-		&:only-child {
-			display: none;
-		}
-	}
+	display: none !important; // Hide arrows as shown in design
 }

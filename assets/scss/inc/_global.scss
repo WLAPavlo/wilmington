@@ -10,6 +10,9 @@ body {
   height: auto;
   min-height: 100vh;
   font-family: $font;
+
+  // Smooth scrolling for anchor links
+  scroll-behavior: smooth;
 }
 
 main {

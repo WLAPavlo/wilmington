@@ -226,6 +226,15 @@
 		$backToTopButton.on('click', function () {
 			scrollToTop();
 		});
+
+		// Products filtering functionality
+		if ( typeof ajax !== 'undefined' ) {
+			// Localize script for AJAX
+			wp_localize_script( 'global', 'ajax', {
+				url: ajax.url || '/wp-admin/admin-ajax.php',
+				nonce: ajax.nonce || ''
+			});
+		}
 	} );
 
 
