@@ -469,6 +469,39 @@
           ],
           "min": "",
           "max": ""
+        },
+        "layout_reviews": {
+          "key": "layout_reviews",
+          "name": "reviews",
+          "label": "Reviews Module",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_reviews_selection",
+              "label": "Reviews Selection (Drag & Drop)",
+              "name": "reviews_selection",
+              "type": "post_object",
+              "instructions": "Drag and drop to reorder reviews. These reviews will be displayed in the slider.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+              },
+              "post_type": [
+                "reviews"
+              ],
+              "taxonomy": [],
+              "allow_null": 0,
+              "multiple": 1,
+              "return_format": "object",
+              "ui": 1,
+              "parent_repeater": "field_flexible_content"
+            }
+          ],
+          "min": "",
+          "max": ""
         }
       },
       "button_label": "Add Module",

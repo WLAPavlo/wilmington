@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .module--text-image {
-  padding: 80px 0;
+  padding-top: 30px;
   background: #fff;
 
   @include media-breakpoint-down(md) {
@@ -132,7 +132,6 @@
 .text-image__image {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
 
   &--fit {
     .text-image__img {

@@ -1,0 +1,274 @@
+/* ==========================================================================
+   Reviews Section Styles
+   ========================================================================== */
+
+.module--reviews {
+  padding: 30px 0;
+  background: #fff;
+}
+
+/* Reviews Slider */
+.reviews-slider {
+  position: relative;
+  max-width: 1200px; // Ще більше збільшено
+  margin: 0 auto;
+
+  .slick-slide {
+    padding: 0 15px; // Зменшено padding
+
+    @include media-breakpoint-down(sm) {
+      padding: 0 10px;
+    }
+  }
+
+  // Smooth slide transitions
+  .slick-track {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+/* Review Card */
+.review-card {
+  background: #fff;
+  text-align: center;
+  min-height: 200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.review-card__content {
+  font-family: $font-old-standard;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #666;
+  font-style: italic;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+
+  p {
+    margin-bottom: 0;
+    width: 100%;
+  }
+}
+
+.review-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+
+  @include media-breakpoint-down(sm) {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Source Icon */
+.review-card__source {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  // Use PNG images instead of FontAwesome
+  img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+  }
+
+  // Hide FontAwesome icons
+  i {
+    display: none;
+  }
+}
+
+/* Stars Rating */
+.review-card__stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  // Hide FontAwesome icons
+  i {
+    display: none;
+  }
+}
+
+/* Author Name */
+.review-card__author {
+  font-family: $font-heebo;
+  font-size: 18px;
+  font-weight: 600;
+  color: $text-color;
+  margin: 0;
+  flex-shrink: 0;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 16px;
+  }
+}
+
+/* Review Info Container */
+.review-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Slider Navigation */
+.reviews-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e9ecef;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+
+  &:hover {
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  i {
+    font-size: 16px;
+    color: $main-color;
+    transition: all 0.3s ease;
+  }
+
+  &--prev {
+    left: -25px;
+
+    @include media-breakpoint-down(sm) {
+      left: -15px;
+    }
+  }
+
+  &--next {
+    right: -25px;
+
+    @include media-breakpoint-down(sm) {
+      right: -15px;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 40px;
+    height: 40px;
+
+    i {
+      font-size: 14px;
+    }
+  }
+}
+
+/* Slider Dots */
+.reviews-dots {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  padding: 0;
+  list-style: none;
+  transition: all 0.3s ease;
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 25px;
+    gap: 6px;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+
+    &:only-child {
+      display: none;
+    }
+  }
+}
+
+.reviews-dot {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: #919191;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.83);
+    transform: scale(1.2);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .slick-active & {
+    background: #000000;
+    transform: scale(1.4);
+  }
+}
+
+/* Hide default slick styles */
+.reviews-slider {
+  .slick-dots {
+    display: none !important;
+  }
+
+  .slick-arrow {
+    display: none !important;
+  }
+}

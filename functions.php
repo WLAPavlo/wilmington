@@ -37,6 +37,8 @@ include_once get_stylesheet_directory() . '/inc/theme-customizations.php';
 //include_once get_stylesheet_directory() . '/inc/shortcodes.php';
 // Products CPT
 include_once get_stylesheet_directory() . '/inc/products-cpt.php';
+// Reviews CPT
+include_once get_stylesheet_directory() . '/inc/reviews-cpt.php';
 
 /******************************************************************************************************************************
  * Constants.

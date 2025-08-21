@@ -156,9 +156,10 @@ if ( $selected_products ) {
             $('#products-filter').on('change', function() {
                 var selectedCategory = $(this).val();
                 var $container = $('#products-container');
+                var $grid = $('#products-grid');
 
                 // Show loading state
-                $container.addClass('loading');
+                $grid.addClass('loading');
 
                 $.ajax({
                     url: ajax.url,
@@ -169,14 +170,26 @@ if ( $selected_products ) {
                         category: selectedCategory,
                         selected_products: selectedProducts
                     },
+                    beforeSend: function() {
+                        // Add smooth fade out effect
+                        $container.css('opacity', '0.3');
+                    },
                     success: function(response) {
                         if (response.success) {
-                            $container.html(response.html);
+                            // Smooth content replacement
+                            setTimeout(function() {
+                                $container.html(response.html);
+                                $container.css('opacity', '1');
+                                $grid.removeClass('loading');
+                            }, 200);
+                        } else {
+                            $container.css('opacity', '1');
+                            $grid.removeClass('loading');
                         }
-                        $container.removeClass('loading');
                     },
                     error: function() {
-                        $container.removeClass('loading');
+                        $container.css('opacity', '1');
+                        $grid.removeClass('loading');
                         console.log('Error filtering products');
                     }
                 });
