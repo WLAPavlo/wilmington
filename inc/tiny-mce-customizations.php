@@ -61,6 +61,24 @@ function insert_custom_formats( $init_array ) {
             'wrapper'  => false,
         ),
         array(
+            'title'    => 'Dark Blue Button',
+            'classes'  => 'button button--dark-blue',
+            'selector' => 'a',
+            'wrapper'  => false,
+        ),
+        array(
+            'title'    => 'Teal Button',
+            'classes'  => 'button button--teal',
+            'selector' => 'a',
+            'wrapper'  => false,
+        ),
+        array(
+            'title'    => 'Dark Blue Button',
+            'classes'  => 'button button--dark-blue',
+            'selector' => 'a',
+            'wrapper'  => false,
+        ),
+        array(
             'title'  => 'Small text',
             'inline' => 'small',
         ),

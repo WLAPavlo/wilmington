@@ -4,7 +4,7 @@ $blue: #1a608b;
 $violet: #52178E;
 $teal: #00bcd4;
 $black: #000000;
-$dark-blue: #1e3a8a;
+$dark-blue: #11375f;
 
 $text-color: #333;
 
@@ -15,11 +15,13 @@ $sub-color: $main-color;
 $font-heebo: 'Heebo', sans-serif;
 $font-karla: 'Karla', sans-serif;
 $font-poppins: 'Poppins', sans-serif;
+$font-old-standard: 'Old Standard TT', serif;
 
 // Default fonts
 $font: $font-heebo; // Main font
 $sub-font: $font-karla; // Secondary font
 $heading-font: $font-poppins; // Headings font
+$quote-font: $font-old-standard;
 
 $fa: 'Font Awesome 5 Free';
 $fab: 'Font Awesome 5 Brands';
@@ -28,6 +30,7 @@ $fab: 'Font Awesome 5 Brands';
 .font-heebo { font-family: $font-heebo !important; }
 .font-karla { font-family: $font-karla !important; }
 .font-poppins { font-family: $font-poppins !important; }
+.font-old-standard { font-family: $font-old-standard !important; }
 
 // Font Awesome Vars
 $fa-font-path: "../fonts";

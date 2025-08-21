@@ -1,9 +1,9 @@
 /* ==========================================================================
-   Products Section Styles
+   Products Section Styles - FIXED
    ========================================================================== */
 
 .module--products {
-  padding: 80px 0;
+  padding: 60px 0;
   background: #fff;
 
   @include media-breakpoint-down(md) {
@@ -40,6 +40,10 @@
   margin-bottom: 20px;
   line-height: 1.2;
 
+  @include media-breakpoint-down(lg) {
+    font-size: 40px;
+  }
+
   @include media-breakpoint-down(md) {
     font-size: 36px;
     margin-bottom: 15px;
@@ -57,6 +61,7 @@
 
   @include media-breakpoint-down(sm) {
     text-align: center;
+    margin-bottom: 15px;
   }
 }
 
@@ -64,10 +69,11 @@
   background: #fff;
   border: 2px solid #e9ecef;
   padding: 12px 40px 12px 16px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   color: $text-color;
-  min-width: 250px;
+  min-width: 280px;
+  max-width: 380px;
   cursor: pointer;
   transition: all 0.3s ease;
   appearance: none;
@@ -75,7 +81,6 @@
   background-position: right 12px center;
   background-repeat: no-repeat;
   background-size: 16px;
-  max-width: 400px;
 
   &:hover {
     border-color: $main-color;
@@ -87,22 +92,32 @@
     box-shadow: 0 0 0 3px rgba($main-color, 0.1);
   }
 
+  @include media-breakpoint-down(lg) {
+    max-width: 320px;
+    min-width: 240px;
+  }
+
+  @include media-breakpoint-down(md) {
+    max-width: 280px;
+    min-width: 200px;
+  }
+
   @include media-breakpoint-down(sm) {
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     min-width: auto;
   }
 }
 
 .products-section__content {
-  margin-top: 20px;
+  font-family: $font-poppins;
   font-size: 18px;
   line-height: 1.6;
   color: #666;
 
-  @include media-breakpoint-down(sm) {
-    text-align: left;
-    font-size: 16px;
+  h6{
+    font-family: $font-heebo;
+    font-size: 28px;
   }
 
   p {
@@ -116,22 +131,25 @@
 
 .products-section__buttons {
   display: flex;
-  gap: 15px;
-  align-items: center;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+
+  a{
+    font-size: 20px;
+    font-family: $font-karla;
+    white-space: nowrap;
+  }
 
   &--right {
-    justify-content: flex-start;
-    margin-top: 20px;
-
-    @include media-breakpoint-down(sm) {
-      justify-content: center;
-      margin-top: 30px;
-    }
+    justify-content: flex-end;
+    margin-top: 6rem;
   }
 
   &--bottom {
     justify-content: center;
-    margin-top: 40px;
+    padding-right: 20px;
 
     @include media-breakpoint-down(sm) {
       flex-direction: column;
@@ -143,6 +161,17 @@
 /* Products Grid */
 .products-grid {
   position: relative;
+
+  .products-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 0;
+
+    @include media-breakpoint-down(sm) {
+      gap: 20px;
+    }
+  }
 
   &.loading {
     opacity: 0.6;
@@ -166,11 +195,16 @@
 }
 
 .products-grid__item {
-  margin-bottom: 30px;
+  flex: 0 0 calc(25% - 22.5px);
+  padding: 0;
   transition: all 0.3s ease;
 
+  @include media-breakpoint-down(lg) {
+    flex: 0 0 calc(50% - 15px);
+  }
+
   @include media-breakpoint-down(sm) {
-    margin-bottom: 20px;
+    flex: 0 0 100%;
   }
 }
 
@@ -225,8 +259,8 @@
 }
 
 .product-card__title {
-  font-family: $heading-font;
-  font-size: 20px;
+  font-family: $font-heebo;
+  font-size: 22px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
@@ -251,7 +285,7 @@
 /* Button Styles */
 .btn {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 12px 20px;
   font-family: $heading-font;
   font-size: 14px;
   font-weight: 700;
@@ -263,15 +297,25 @@
   cursor: pointer;
   letter-spacing: 0.5px;
 
+  @include media-breakpoint-down(lg) {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
   &--dark-blue {
-    background: #1e3a8a;
+    background: $dark-blue;
     color: #fff;
-    border-color: #1e3a8a;
+    border-color: $dark-blue;
 
     &:hover {
       background: transparent;
-      color: #1e3a8a;
-      border-color: #1e3a8a;
+      color: $dark-blue;
+      border-color: $dark-blue;
       text-decoration: none;
     }
   }
@@ -299,7 +343,7 @@
 
 /* Bottom Section */
 .products-section__bottom {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
 
   @include media-breakpoint-down(md) {
@@ -317,43 +361,34 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Responsive Grid Adjustments */
+/* Media Queries for better responsive layout */
 @include media-breakpoint-down(lg) {
-  .products-grid__item {
-    &:nth-child(3n+1) {
-      clear: left;
+  .products-section__header {
+    .col-lg-10 {
+      flex: 0 0 65%;
+      max-width: 65%;
+    }
+
+    .col-lg-2 {
+      flex: 0 0 35%;
+      max-width: 35%;
     }
   }
 }
 
 @include media-breakpoint-down(md) {
-  .products-grid__item {
-    &:nth-child(2n+1) {
-      clear: left;
-    }
-
-    &:nth-child(3n+1) {
-      clear: none;
-    }
-  }
-}
-
-@include media-breakpoint-down(sm) {
-  .products-grid__item {
-    &:nth-child(n) {
-      clear: both;
-    }
-  }
-
   .products-section__header {
-    .row {
-      flex-direction: column;
+    .col-md-8 {
+      flex: 0 0 60%;
+      max-width: 60%;
     }
 
-    .col-lg-8,
-    .col-lg-4 {
-      width: 100%;
-      max-width: 100%;
+    .col-md-4 {
+      flex: 0 0 40%;
+      max-width: 40%;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 10px;
     }
   }
 }

@@ -19,11 +19,11 @@
         "layout_products": {
           "key": "layout_products",
           "name": "products",
-          "label": "Products",
+          "label": "Products Module",
           "display": "block",
           "sub_fields": [
             {
-              "key": "field_products_module_title",
+              "key": "field_products_section_title",
               "label": "Section Title",
               "name": "section_title",
               "type": "text",
@@ -43,7 +43,7 @@
               "parent_repeater": "field_flexible_content"
             },
             {
-              "key": "field_products_module_content",
+              "key": "field_products_content",
               "label": "Content",
               "name": "content",
               "type": "wysiwyg",
@@ -63,7 +63,7 @@
               "parent_repeater": "field_flexible_content"
             },
             {
-              "key": "field_products_module_right_buttons",
+              "key": "field_products_right_buttons",
               "label": "Right Buttons",
               "name": "right_buttons",
               "type": "repeater",
@@ -81,10 +81,9 @@
               "layout": "table",
               "button_label": "Add Right Button",
               "rows_per_page": 20,
-              "parent_repeater": "field_flexible_content",
               "sub_fields": [
                 {
-                  "key": "field_products_right_button_text",
+                  "key": "field_right_button_text",
                   "label": "Button Text",
                   "name": "button_text",
                   "type": "text",
@@ -101,10 +100,10 @@
                   "prepend": "",
                   "append": "",
                   "maxlength": "",
-                  "parent_repeater": "field_products_module_right_buttons"
+                  "parent_repeater": "field_products_right_buttons"
                 },
                 {
-                  "key": "field_products_right_button_url",
+                  "key": "field_right_button_url",
                   "label": "Button URL",
                   "name": "button_url",
                   "type": "url",
@@ -118,10 +117,10 @@
                   },
                   "default_value": "",
                   "placeholder": "",
-                  "parent_repeater": "field_products_module_right_buttons"
+                  "parent_repeater": "field_products_right_buttons"
                 },
                 {
-                  "key": "field_products_right_button_new_tab",
+                  "key": "field_right_button_new_tab",
                   "label": "Open in New Tab",
                   "name": "button_new_tab",
                   "type": "true_false",
@@ -138,10 +137,10 @@
                   "ui": 1,
                   "ui_on_text": "",
                   "ui_off_text": "",
-                  "parent_repeater": "field_products_module_right_buttons"
+                  "parent_repeater": "field_products_right_buttons"
                 },
                 {
-                  "key": "field_products_right_button_color",
+                  "key": "field_right_button_color",
                   "label": "Button Color",
                   "name": "button_color",
                   "type": "select",
@@ -164,12 +163,12 @@
                   "return_format": "value",
                   "ajax": 0,
                   "placeholder": "",
-                  "parent_repeater": "field_products_module_right_buttons"
+                  "parent_repeater": "field_products_right_buttons"
                 }
               ]
             },
             {
-              "key": "field_products_module_selection",
+              "key": "field_products_selection",
               "label": "Products Selection (Drag & Drop)",
               "name": "products_selection",
               "type": "post_object",
@@ -192,7 +191,7 @@
               "parent_repeater": "field_flexible_content"
             },
             {
-              "key": "field_products_module_bottom_buttons",
+              "key": "field_products_bottom_buttons",
               "label": "Bottom Buttons",
               "name": "bottom_buttons",
               "type": "repeater",
@@ -210,10 +209,9 @@
               "layout": "table",
               "button_label": "Add Bottom Button",
               "rows_per_page": 20,
-              "parent_repeater": "field_flexible_content",
               "sub_fields": [
                 {
-                  "key": "field_products_bottom_button_text",
+                  "key": "field_bottom_button_text",
                   "label": "Button Text",
                   "name": "button_text",
                   "type": "text",
@@ -230,10 +228,10 @@
                   "prepend": "",
                   "append": "",
                   "maxlength": "",
-                  "parent_repeater": "field_products_module_bottom_buttons"
+                  "parent_repeater": "field_products_bottom_buttons"
                 },
                 {
-                  "key": "field_products_bottom_button_url",
+                  "key": "field_bottom_button_url",
                   "label": "Button URL",
                   "name": "button_url",
                   "type": "url",
@@ -247,10 +245,10 @@
                   },
                   "default_value": "",
                   "placeholder": "",
-                  "parent_repeater": "field_products_module_bottom_buttons"
+                  "parent_repeater": "field_products_bottom_buttons"
                 },
                 {
-                  "key": "field_products_bottom_button_new_tab",
+                  "key": "field_bottom_button_new_tab",
                   "label": "Open in New Tab",
                   "name": "button_new_tab",
                   "type": "true_false",
@@ -267,10 +265,10 @@
                   "ui": 1,
                   "ui_on_text": "",
                   "ui_off_text": "",
-                  "parent_repeater": "field_products_module_bottom_buttons"
+                  "parent_repeater": "field_products_bottom_buttons"
                 },
                 {
-                  "key": "field_products_bottom_button_color",
+                  "key": "field_bottom_button_color",
                   "label": "Button Color",
                   "name": "button_color",
                   "type": "select",
@@ -293,9 +291,180 @@
                   "return_format": "value",
                   "ajax": 0,
                   "placeholder": "",
-                  "parent_repeater": "field_products_module_bottom_buttons"
+                  "parent_repeater": "field_products_bottom_buttons"
                 }
               ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_text_image": {
+          "key": "layout_text_image",
+          "name": "text_image",
+          "label": "Text/Image Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_text_image_content",
+              "label": "Content",
+              "name": "content",
+              "type": "wysiwyg",
+              "instructions": "Full text editor with custom button styles",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "tabs": "all",
+              "toolbar": "full",
+              "media_upload": 1,
+              "delay": 0,
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_text_position",
+              "label": "Text Position",
+              "name": "text_position",
+              "type": "radio",
+              "instructions": "Choose which side the text displays on",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "left": "Left",
+                "right": "Right"
+              },
+              "default_value": "left",
+              "allow_null": 0,
+              "other_choice": 0,
+              "save_other_choice": 0,
+              "layout": "vertical",
+              "return_format": "value",
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_media_type",
+              "label": "Media Type",
+              "name": "media_type",
+              "type": "radio",
+              "instructions": "Choose between image or video",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "image": "Image",
+                "video": "Video"
+              },
+              "default_value": "image",
+              "allow_null": 0,
+              "other_choice": 0,
+              "save_other_choice": 0,
+              "layout": "vertical",
+              "return_format": "value",
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_section_image",
+              "label": "Image",
+              "name": "section_image",
+              "type": "image",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_media_type",
+                    "operator": "==",
+                    "value": "image"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": "",
+              "min_height": "",
+              "min_size": "",
+              "max_width": "",
+              "max_height": "",
+              "max_size": "",
+              "mime_types": "",
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_image_display",
+              "label": "Image Display",
+              "name": "image_display",
+              "type": "radio",
+              "instructions": "Choose how the image displays",
+              "required": 0,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_media_type",
+                    "operator": "==",
+                    "value": "image"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "fit": "Fit - Image adjusts to fit in the space",
+                "full": "Full - Full image displays in the space"
+              },
+              "default_value": "fit",
+              "allow_null": 0,
+              "other_choice": 0,
+              "save_other_choice": 0,
+              "layout": "vertical",
+              "return_format": "value",
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_section_video",
+              "label": "Video URL",
+              "name": "section_video",
+              "type": "url",
+              "instructions": "Enter video URL (YouTube, Vimeo, or direct video file)",
+              "required": 0,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_media_type",
+                    "operator": "==",
+                    "value": "video"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "https://www.youtube.com/watch?v=...",
+              "parent_repeater": "field_flexible_content"
             }
           ],
           "min": "",

@@ -108,7 +108,7 @@ function filter_products_callback() {
             ),
         );
     }
-
+    $response['html'] = '<div class="products-grid__item" style="flex: 1 0 100%;"><p class="text-center">No products found.</p></div>';
     $products_query = new WP_Query( $args );
     $response = array();
 
@@ -117,7 +117,7 @@ function filter_products_callback() {
         while ( $products_query->have_posts() ) {
             $products_query->the_post();
             ?>
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 products-grid__item" data-categories="<?php echo esc_attr( implode( ',', wp_get_object_terms( get_the_ID(), 'product_category', array( 'fields' => 'slugs' ) ) ) ); ?>">
+            <div class="products-grid__item" data-categories="<?php echo esc_attr( implode( ',', wp_get_object_terms( get_the_ID(), 'product_category', array( 'fields' => 'slugs' ) ) ) ); ?>">
                 <div class="product-card">
                     <?php if ( has_post_thumbnail() ): ?>
                         <div class="product-card__image">

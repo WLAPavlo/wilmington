@@ -1,0 +1,191 @@
+/* ==========================================================================
+   Text/Image Section Styles
+   ========================================================================== */
+
+.module--text-image {
+  padding: 80px 0;
+  background: #fff;
+
+  @include media-breakpoint-down(md) {
+    padding: 60px 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 40px 0;
+  }
+}
+
+/* Text Content */
+.text-image__content {
+  padding: 0 30px;
+
+  @include media-breakpoint-down(md) {
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+}
+
+.text-image__text {
+  h2{
+    font-family: $font-heebo;
+    font-size: 60px;
+  }
+
+
+  h5 {
+    font-family: $font-poppins;
+    font-size: 18px;
+    color: #666;
+  }
+
+  p {
+    font-family: $font-poppins;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Custom button styles
+  .button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: $font-karla;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    margin-right: 15px;
+    margin-top: 2rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    // Default button (purple)
+    &:not(.button--dark-blue):not(.button--teal) {
+      background: #52178e;
+      color: #fff;
+      border-color: #52178e;
+
+      &:hover {
+        background: transparent;
+        color: #52178e;
+        border-color: #52178e;
+      }
+    }
+
+    // Dark blue button
+    &--dark-blue {
+      background: $dark-blue;
+      color: #fff;
+      border-color: $dark-blue;
+
+      &:hover {
+        background: transparent;
+        color: $dark-blue;
+        border-color: $dark-blue;
+      }
+    }
+
+    // Teal button
+    &--teal {
+      background: $main-color;
+      color: #fff;
+      border-color: $main-color;
+
+      &:hover {
+        background: transparent;
+        color: $main-color;
+        border-color: $main-color;
+      }
+    }
+  }
+}
+
+/* Media Content */
+.text-image__media {
+  padding: 0 30px;
+
+  @include media-breakpoint-down(md) {
+    padding: 0 20px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 0 15px;
+  }
+}
+
+.text-image__image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+
+  &--fit {
+    .text-image__img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &--full {
+    aspect-ratio: 4/3;
+
+    .text-image__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.text-image__img {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.text-image__video {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  .embed-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+.text-image__video-element {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@include media-breakpoint-down(md) {
+  .text-image__content {
+    order: 2;
+  }
+
+  .text-image__media {
+    order: 1;
+  }
+}

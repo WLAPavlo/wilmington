@@ -32,48 +32,54 @@ if ( $selected_products ) {
                     <!-- Header Section -->
                     <div class="products-section__header">
                         <div class="row align-items-start">
-                            <div class="col-lg-8 col-md-7 col-sm-12">
-                                <h2 class="products-section__title"><?php echo esc_html( $section_title ); ?></h2>
+                            <!-- Left Column - Title, Filter, Content -->
+                            <div class="col-12">
+                                <div class="row align-items-start">
+                                    <div class="col-lg-9 col-md-7 col-sm-12">
+                                        <h2 class="products-section__title"><?php echo esc_html( $section_title ); ?></h2>
 
-                                <div class="products-section__controls">
-                                    <select class="products-filter" id="products-filter">
-                                        <option value="all">All</option>
-                                        <?php if ( $product_categories && !is_wp_error( $product_categories ) ): ?>
-                                            <?php foreach ( $product_categories as $category ): ?>
-                                                <option value="<?php echo esc_attr( $category->slug ); ?>">
-                                                    <?php echo esc_html( $category->name ); ?>
-                                                </option>
-                                            <?php endforeach; ?>
+                                        <div class="products-section__controls">
+                                            <select class="products-filter" id="products-filter">
+                                                <option value="all">All</option>
+                                                <?php if ( $product_categories && !is_wp_error( $product_categories ) ): ?>
+                                                    <?php foreach ( $product_categories as $category ): ?>
+                                                        <option value="<?php echo esc_attr( $category->slug ); ?>">
+                                                            <?php echo esc_html( $category->name ); ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
+
+                                        <?php if ( $content ): ?>
+                                            <div class="products-section__content">
+                                                <?php echo wp_kses_post( $content ); ?>
+                                            </div>
                                         <?php endif; ?>
-                                    </select>
+                                    </div>
+
+                                    <!-- Right Column - Buttons -->
+                                    <div class="col-lg-3 col-md-5 col-sm-12">
+                                        <?php if ( $right_buttons ): ?>
+                                            <div class="products-section__buttons products-section__buttons--right">
+                                                <?php foreach ( $right_buttons as $button ): ?>
+                                                    <a href="<?php echo esc_url( $button['button_url'] ); ?>"
+                                                       class="btn btn--<?php echo esc_attr( $button['button_color'] ); ?>"
+                                                        <?php echo $button['button_new_tab'] ? 'target="_blank" rel="noopener"' : ''; ?>>
+                                                        <?php echo esc_html( $button['button_text'] ); ?>
+                                                    </a>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-
-                                <?php if ( $content ): ?>
-                                    <div class="products-section__content">
-                                        <?php echo wp_kses_post( $content ); ?>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-
-                            <div class="col-lg-4 col-md-5 col-sm-12">
-                                <?php if ( $right_buttons ): ?>
-                                    <div class="products-section__buttons products-section__buttons--right">
-                                        <?php foreach ( $right_buttons as $button ): ?>
-                                            <a href="<?php echo esc_url( $button['button_url'] ); ?>"
-                                               class="btn btn--<?php echo esc_attr( $button['button_color'] ); ?>"
-                                                <?php echo $button['button_new_tab'] ? 'target="_blank" rel="noopener"' : ''; ?>>
-                                                <?php echo esc_html( $button['button_text'] ); ?>
-                                            </a>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
 
                     <!-- Products Grid -->
                     <div class="products-grid" id="products-grid">
-                        <div class="row" id="products-container">
+                        <div class="products-row" id="products-container">
                             <?php
                             // Display selected products or all products
                             $args = array(
@@ -95,7 +101,7 @@ if ( $selected_products ) {
                                 while ( $products_query->have_posts() ): $products_query->the_post();
                                     $categories = wp_get_object_terms( get_the_ID(), 'product_category', array( 'fields' => 'slugs' ) );
                                     ?>
-                                    <div class="col-lg-3 col-md-6 col-sm-12 col-12 products-grid__item" data-categories="<?php echo esc_attr( implode( ',', $categories ) ); ?>">
+                                    <div class="products-grid__item" data-categories="<?php echo esc_attr( implode( ',', $categories ) ); ?>">
                                         <div class="product-card">
                                             <?php if ( has_post_thumbnail() ): ?>
                                                 <div class="product-card__image">
@@ -115,7 +121,7 @@ if ( $selected_products ) {
                                 wp_reset_postdata();
                             else:
                                 ?>
-                                <div class="col-12">
+                                <div class="products-grid__item" style="flex: 1 0 100%;">
                                     <p class="text-center">No products found.</p>
                                 </div>
                             <?php
