@@ -1,0 +1,344 @@
+/* ==========================================================================
+   Form/Map Section Styles
+   ========================================================================== */
+
+.module--form-map {
+  padding: 0;
+  background: #fff;
+  min-height: 600px;
+
+  @include media-breakpoint-down(md) {
+    min-height: auto;
+  }
+
+  .container-fluid {
+    padding: 0;
+  }
+
+  .row {
+    min-height: 600px;
+
+    @include media-breakpoint-down(md) {
+      min-height: auto;
+    }
+  }
+}
+
+/* Form Section */
+.form-map__form-section {
+  background: $main-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-height: 600px;
+
+  @include media-breakpoint-down(md) {
+    min-height: 500px;
+    padding: 40px 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    min-height: auto;
+    padding: 40px 0;
+  }
+}
+
+.form-map__form-content {
+  width: 100%;
+  max-width: 500px;
+  padding: 60px 40px;
+
+  @include media-breakpoint-down(md) {
+    max-width: 600px;
+    padding: 40px 30px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 30px 20px;
+  }
+}
+
+.form-map__form-inner {
+  color: #fff;
+
+  // Form title styling
+  h2, h3, h4, h5, h6 {
+    color: #fff;
+    font-family: $heading-font;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 32px;
+    line-height: 1.2;
+
+    @include media-breakpoint-down(md) {
+      font-size: 28px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+  }
+
+  // Gravity Forms styling
+  .gform_wrapper {
+    .gform_fields {
+      .gfield {
+        margin-bottom: 20px;
+
+        @include media-breakpoint-down(sm) {
+          margin-bottom: 15px;
+        }
+
+        label {
+          color: #fff;
+          font-weight: 500;
+          margin-bottom: 8px;
+          display: block;
+          font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        textarea,
+        select {
+          width: 100%;
+          padding: 12px 16px;
+          border: 2px solid transparent;
+          background: rgba(255, 255, 255, 0.1);
+          color: #fff;
+          font-size: 16px;
+          border-radius: 0;
+          transition: all 0.3s ease;
+
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+          }
+
+          &:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+          }
+
+          @include media-breakpoint-down(sm) {
+            padding: 10px 14px;
+            font-size: 14px;
+          }
+        }
+
+        textarea {
+          min-height: 120px;
+          resize: vertical;
+        }
+
+        // File upload styling
+        .ginput_container_fileupload {
+          input[type="file"] {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.15);
+              border-color: rgba(255, 255, 255, 0.5);
+            }
+          }
+        }
+
+        // Error styling
+        &.gfield_error {
+          input, textarea, select {
+            border-color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+          }
+
+          .validation_message {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            border-color: #ff6b6b;
+          }
+        }
+      }
+    }
+
+    // Submit button styling
+    .gform_footer {
+      text-align: center;
+      margin-top: 30px;
+
+      input[type="submit"] {
+        background: #fff;
+        color: $main-color;
+        border: 2px solid #fff;
+        padding: 15px 40px;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 0;
+        min-width: 200px;
+
+        &:hover {
+          background: transparent;
+          color: #fff;
+          border-color: #fff;
+        }
+
+        @include media-breakpoint-down(sm) {
+          padding: 12px 30px;
+          font-size: 14px;
+          min-width: 180px;
+        }
+      }
+    }
+
+    // Confirmation message styling
+    .gform_confirmation_message {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+    }
+  }
+}
+
+/* Map Section */
+.form-map__map-section {
+  padding: 0;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+
+  @include media-breakpoint-down(md) {
+    min-height: 400px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    min-height: 300px;
+  }
+}
+
+.form-map__map-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.form-map__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.form-map__map-embed {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    border: none;
+
+    @include media-breakpoint-down(md) {
+      min-height: 400px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      min-height: 300px;
+    }
+  }
+}
+
+/* Mobile Responsive */
+@include media-breakpoint-down(md) {
+  .form-map__form-section {
+    order: 1;
+  }
+
+  .form-map__map-section {
+    order: 2;
+  }
+}
+
+/* Contact Info Styling */
+.form-map__contact-info {
+  margin-bottom: 30px;
+
+  .contact-info__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 14px;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    i {
+      color: #fff;
+      font-size: 18px;
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+        width: 18px;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}

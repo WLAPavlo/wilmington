@@ -182,18 +182,11 @@
 		color: #ffffff;
 		text-decoration: none;
 		opacity: 0.8;
-		transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-		animation: bounce 2s infinite;
-
-		@include media-breakpoint-down(sm) {
-			bottom: 15px;
-		}
 
 		&:hover {
 			opacity: 1;
 			color: #fff;
 			text-decoration: none;
-			transform: translateX(-50%) translateY(-3px);
 		}
 
 		// Hide FontAwesome icon if present

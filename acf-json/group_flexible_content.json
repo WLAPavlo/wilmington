@@ -502,6 +502,169 @@
           ],
           "min": "",
           "max": ""
+        },
+        "layout_form_map": {
+          "key": "layout_form_map",
+          "name": "form_map",
+          "label": "Form/Map Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_form_selection",
+              "label": "Contact Form",
+              "name": "contact_form",
+              "type": "gravity_forms_field",
+              "instructions": "Select which form to display",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "allow_null": 0,
+              "allow_multiple": 0,
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_form_position",
+              "label": "Form Position",
+              "name": "form_position",
+              "type": "radio",
+              "instructions": "Choose which side the form displays on",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "left": "Left",
+                "right": "Right"
+              },
+              "default_value": "left",
+              "allow_null": 0,
+              "other_choice": 0,
+              "save_other_choice": 0,
+              "layout": "vertical",
+              "return_format": "value",
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_map_type",
+              "label": "Map Type",
+              "name": "map_type",
+              "type": "radio",
+              "instructions": "Choose between image or embedded map",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "image": "Image",
+                "embed": "Embed"
+              },
+              "default_value": "embed",
+              "allow_null": 0,
+              "other_choice": 0,
+              "save_other_choice": 0,
+              "layout": "vertical",
+              "return_format": "value",
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_map_image",
+              "label": "Map Image",
+              "name": "map_image",
+              "type": "image",
+              "instructions": "Upload an image to display as the map",
+              "required": 0,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_map_type",
+                    "operator": "==",
+                    "value": "image"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": "",
+              "min_height": "",
+              "min_size": "",
+              "max_width": "",
+              "max_height": "",
+              "max_size": "",
+              "mime_types": "",
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_map_image_link",
+              "label": "Map Image Link",
+              "name": "map_image_link",
+              "type": "url",
+              "instructions": "Link for the map image (opens in new tab)",
+              "required": 0,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_map_type",
+                    "operator": "==",
+                    "value": "image"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "https://maps.google.com/...",
+              "parent_repeater": "field_flexible_content"
+            },
+            {
+              "key": "field_map_embed",
+              "label": "Map Embed Code/URL",
+              "name": "map_embed",
+              "type": "textarea",
+              "instructions": "Enter Google Maps embed code or URL",
+              "required": 0,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_map_type",
+                    "operator": "==",
+                    "value": "embed"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "Paste Google Maps embed code or URL here...",
+              "maxlength": "",
+              "rows": 4,
+              "new_lines": "",
+              "parent_repeater": "field_flexible_content"
+            }
+          ],
+          "min": "",
+          "max": ""
         }
       },
       "button_label": "Add Module",
