@@ -75,3 +75,19 @@ function form_submit_success_ada_notice( $msg ) {
 }
 
 add_filter( 'gform_confirmation', 'form_submit_success_ada_notice' );
+
+// Custom file upload styling
+add_filter( 'gform_field_content', 'custom_file_upload_styling', 10, 5 );
+
+function custom_file_upload_styling( $content, $field, $value, $lead_id, $form_id ) {
+    if ( $field->type == 'fileupload' && ! is_admin() ) {
+        // Just add the custom class for CSS targeting
+        $content = str_replace(
+            'class="ginput_container ginput_container_fileupload"',
+            'class="ginput_container ginput_container_fileupload custom-file-upload"',
+            $content
+        );
+    }
+
+    return $content;
+}

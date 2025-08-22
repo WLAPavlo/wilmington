@@ -59,9 +59,8 @@ body.admin-bar {
 .partners-bar__logos {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	flex-wrap: wrap;
-	gap: 30px;
 
 	@include media-breakpoint-down(md) {
 		gap: 20px;
@@ -151,15 +150,6 @@ body.admin-bar {
 	}
 
 	img {
-		max-height: 80px;
-
-		@include media-breakpoint-down(md) {
-			max-height: 70px;
-		}
-
-		@include media-breakpoint-down(sm) {
-			max-height: 50px; // Smaller logo on mobile
-		}
 	}
 
 	@include media-breakpoint-down(sm) {
@@ -503,7 +493,7 @@ body.admin-bar {
 	.partners-bar-mobile {
 		order: 4;
 		padding: 15px 0;
-		border-top: 1px solid rgba(0, 0, 0, 0.7);
+		border-top: 1px solid #11375f;
 		border-bottom: none;
 		margin-top: 15px;
 		background: #fff;
