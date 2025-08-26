@@ -1,0 +1,860 @@
+/* ==========================================================================
+   Careers Page Template Styles
+   ========================================================================== */
+
+.template-careers {
+  .main-content {
+    padding: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   Careers Module Styles - Fixed Layout
+   ========================================================================== */
+
+.module--careers {
+  padding: 80px 0;
+  background: #fff;
+
+  @include media-breakpoint-down(md) {
+    padding: 60px 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 40px 0;
+  }
+}
+
+/* Careers List Layout */
+.careers-list {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.career-item {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: $main-color;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 25px 20px;
+    margin-bottom: 25px;
+  }
+}
+
+/* Career Header */
+.career-item__header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+  }
+}
+
+.career-item__title {
+  font-family: $font-heebo;
+  font-size: 32px;
+  font-weight: 700;
+  color: $text-color;
+  margin-bottom: 8px;
+  line-height: 1.3;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 28px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 26px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+}
+
+.career-item__subtitle {
+  font-family: $font-poppins;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  margin: 0;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 15px;
+  }
+}
+
+/* Career Content */
+.career-item__content {
+  margin-bottom: 30px;
+  font-family: $font-poppins;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 25px;
+    font-size: 15px;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: $font-heebo;
+    color: $text-color;
+    margin-bottom: 15px;
+    margin-top: 25px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: $main-color;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 20px;
+    }
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 17px;
+    }
+  }
+
+  p {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol {
+    margin-bottom: 20px;
+    padding-left: 25px;
+
+    li {
+      margin-bottom: 6px;
+      line-height: 1.5;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ul {
+    li {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 10px;
+        width: 4px;
+        height: 4px;
+        background: $main-color;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  strong {
+    font-weight: 600;
+    color: $text-color;
+  }
+}
+
+/* Career Actions */
+.career-item__actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.career-item__btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-family: $font-poppins;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  min-width: 140px;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  &--outline {
+    background: transparent;
+    color: $text-color;
+    border-color: #e9ecef;
+
+    &:hover {
+      background: $text-color;
+      color: #fff;
+      border-color: $text-color;
+    }
+  }
+
+  &--teal {
+    background: $main-color;
+    color: #fff;
+    border-color: $main-color;
+
+    &:hover {
+      background: transparent;
+      color: $main-color;
+      border-color: $main-color;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    min-width: auto;
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================================================
+   Single Career Page Styles
+   ========================================================================== */
+
+.career-single {
+  margin-bottom: 60px;
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: 40px;
+  }
+}
+
+.career-single__header {
+  margin-bottom: 40px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid #f0f0f0;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+}
+
+.career-single__title {
+  font-family: $font-heebo;
+  font-size: 48px;
+  font-weight: 700;
+  color: $text-color;
+  margin-bottom: 15px;
+  line-height: 1.2;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 42px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 36px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+}
+
+.career-single__content {
+  margin-bottom: 40px;
+  font-family: $font-poppins;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #555;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-heebo;
+    color: $text-color;
+    margin-bottom: 20px;
+    margin-top: 35px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    border-bottom: 2px solid $main-color;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 26px;
+    }
+  }
+
+  h3 {
+    font-size: 26px;
+    font-weight: 600;
+    color: $main-color;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 22px;
+    }
+  }
+
+  p {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol {
+    margin-bottom: 25px;
+    padding-left: 30px;
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.career-single__actions {
+  margin-bottom: 40px;
+  text-align: center;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid $main-color;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 30px;
+    padding: 25px 20px;
+  }
+}
+
+.career-single__submit-btn {
+  font-size: 18px;
+  padding: 15px 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 16px;
+    padding: 12px 30px;
+  }
+}
+
+.career-single__meta {
+  margin-bottom: 40px;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid $main-color;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 30px;
+    padding: 20px;
+  }
+}
+
+.career-single__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.career-single__meta-label {
+  font-family: $font-poppins;
+  font-size: 16px;
+  font-weight: 600;
+  color: $text-color;
+}
+
+.career-single__meta-date {
+  font-family: $font-poppins;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Navigation */
+.career-single__navigation {
+  padding: 30px 0;
+  border-top: 2px solid #f0f0f0;
+  margin-top: 40px;
+
+  @include media-breakpoint-down(sm) {
+    padding: 25px 0;
+    margin-top: 30px;
+  }
+}
+
+.career-single__nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+}
+
+.career-single__back-btn {
+  flex-shrink: 0;
+
+  @include media-breakpoint-down(md) {
+    order: 3;
+  }
+}
+
+.career-single__nav-adjacent {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+  justify-content: flex-end;
+
+  @include media-breakpoint-down(lg) {
+    gap: 10px;
+  }
+
+  @include media-breakpoint-down(md) {
+    order: 1;
+    justify-content: space-between;
+  }
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.career-single__nav-prev,
+.career-single__nav-next {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-family: $font-karla;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid #e9ecef;
+  background: #fff;
+  color: $text-color;
+  max-width: 200px;
+
+  &:hover {
+    text-decoration: none;
+    border-color: $main-color;
+    background: $main-color;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  @include media-breakpoint-down(lg) {
+    max-width: 180px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    max-width: none;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  i {
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+}
+
+.career-single__nav-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+
+  small {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  span {
+    font-weight: 600;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 120px;
+
+    @include media-breakpoint-down(lg) {
+      max-width: 100px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      max-width: none;
+      white-space: normal;
+    }
+  }
+}
+
+.career-single__nav-next {
+  .career-single__nav-text {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+/* ==========================================================================
+   Employment Page Styles
+   ========================================================================== */
+
+.template-employment {
+  .employment-page__intro {
+    margin-bottom: 50px;
+    text-align: center;
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: 40px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 30px;
+    }
+
+    h1, h2 {
+      font-family: $font-heebo;
+      font-size: 45px;
+      font-weight: 400;
+      color: $text-color;
+      margin-bottom: 20px;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 40px;
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: 36px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: 28px;
+      }
+    }
+
+    p {
+      font-family: $font-poppins;
+      font-size: 18px;
+      color: #666;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.module--employment-form {
+  padding: 60px 0;
+  background: #fff;
+
+  @include media-breakpoint-down(md) {
+    padding: 50px 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 40px 0;
+  }
+}
+
+.employment-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.employment-form__job-title {
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 25px;
+  background: $main-color;
+  color: #fff;
+  border-radius: 8px;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 25px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-family: $font-heebo;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 24px;
+    }
+  }
+}
+
+.employment-form__content {
+  background: #f8f9fa;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+
+  @include media-breakpoint-down(sm) {
+    padding: 30px 20px;
+  }
+
+  // Gravity Forms styling for employment form
+  .gform_wrapper {
+    .gform_title {
+      display: none !important;
+    }
+
+    .gform_description {
+      display: none !important;
+    }
+
+    .gform_fields {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+
+      .gfield {
+        margin-bottom: 0;
+        padding: 0;
+        list-style: none;
+        flex: 1 1 calc(50% - 10px);
+
+        @include media-breakpoint-down(sm) {
+          flex: 1 1 100%;
+        }
+
+        // Full width fields
+        &.message-field,
+        &.file-field {
+          flex: 1 1 100%;
+        }
+
+        label.gfield_label {
+          display: block !important;
+          position: static !important;
+          clip: auto !important;
+          width: auto !important;
+          height: auto !important;
+          margin: 0 0 8px 0 !important;
+          padding: 0 !important;
+          font-family: $font-poppins;
+          font-size: 16px;
+          font-weight: 600;
+          color: $text-color;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        textarea,
+        select {
+          width: 100%;
+          padding: 12px 16px;
+          border: 2px solid #e9ecef;
+          background: #fff;
+          color: $text-color;
+          font-size: 16px;
+          border-radius: 6px;
+          font-family: $font-poppins;
+          transition: all 0.3s ease;
+
+          &::placeholder {
+            color: #999;
+            font-family: $font-poppins;
+          }
+
+          &:focus {
+            outline: none;
+            border-color: $main-color;
+            box-shadow: 0 0 0 3px rgba($main-color, 0.1);
+          }
+
+          @include media-breakpoint-down(sm) {
+            padding: 10px 14px;
+            font-size: 15px;
+          }
+        }
+
+        textarea {
+          min-height: 120px;
+          resize: vertical;
+        }
+
+        // File upload styling
+        &.file-field {
+          .ginput_container_fileupload {
+            position: relative;
+
+            input[type="file"] {
+              position: absolute;
+              opacity: 0;
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
+              z-index: 2;
+            }
+
+            &::after {
+              content: 'Choose File';
+              display: block;
+              background: #fff;
+              border: 2px solid #e9ecef;
+              padding: 12px 16px;
+              color: $text-color;
+              font-weight: 500;
+              text-align: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              border-radius: 6px;
+              font-family: $font-poppins;
+
+              &:hover {
+                border-color: $main-color;
+                background: #f8f9fa;
+              }
+            }
+          }
+        }
+
+        &.gfield_error {
+          input, textarea, select {
+            border-color: #dc3545;
+          }
+
+          .validation_message {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .gform_footer {
+      text-align: center;
+      padding: 0;
+      margin-top: 30px;
+
+      input[type="submit"] {
+        background: $main-color;
+        color: #fff;
+        border: 2px solid $main-color;
+        padding: 15px 40px;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-family: $font-poppins;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: transparent;
+          color: $main-color;
+          border-color: $main-color;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        @include media-breakpoint-down(sm) {
+          width: 100%;
+          padding: 12px 30px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .gform_confirmation_message {
+      background: rgba($main-color, 0.1);
+      border: 2px solid rgba($main-color, 0.3);
+      padding: 25px;
+      color: $text-color;
+      text-align: center;
+      border-radius: 8px;
+      font-family: $font-poppins;
+    }
+  }
+}

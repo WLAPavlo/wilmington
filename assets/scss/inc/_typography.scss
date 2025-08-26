@@ -196,10 +196,22 @@ button, .btn, .button, input[type='submit'], input[type='reset'], input[type='bu
 	background-color: $main-color;
 	color: #fff;
 	text-decoration: none;
+	border: 2px solid $main-color;
+	padding: 12px 24px;
+	font-family: $font-poppins;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-size: 16px;
 
 	&:hover, &:focus {
 		background-color: darken($main-color, 7.5);
 		color: #fff;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 	}
 }
 

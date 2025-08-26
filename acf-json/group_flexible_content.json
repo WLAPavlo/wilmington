@@ -470,6 +470,120 @@
           "min": "",
           "max": ""
         },
+        "layout_projects": {
+          "key": "layout_projects",
+          "name": "projects",
+          "label": "Projects Module (Past Projects)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_projects_list",
+              "label": "Projects List",
+              "name": "projects_list",
+              "type": "repeater",
+              "instructions": "Add projects with galleries and content",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "collapsed": "",
+              "min": 1,
+              "max": 0,
+              "layout": "block",
+              "button_label": "Add Project",
+              "rows_per_page": 20,
+              "sub_fields": [
+                {
+                  "key": "field_project_title",
+                  "label": "Project Title",
+                  "name": "project_title",
+                  "type": "text",
+                  "instructions": "",
+                  "required": 1,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "Easton Elementary School",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "maxlength": "",
+                  "parent_repeater": "field_projects_list"
+                },
+                {
+                  "key": "field_project_subtitle",
+                  "label": "Project Subtitle",
+                  "name": "project_subtitle",
+                  "type": "text",
+                  "instructions": "",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "Built by Whiting Turner",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "maxlength": "",
+                  "parent_repeater": "field_projects_list"
+                },
+                {
+                  "key": "field_project_description",
+                  "label": "Project Description",
+                  "name": "project_description",
+                  "type": "wysiwyg",
+                  "instructions": "Full text editor for project description",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "tabs": "all",
+                  "toolbar": "full",
+                  "media_upload": 1,
+                  "delay": 0,
+                  "parent_repeater": "field_projects_list"
+                },
+                {
+                  "key": "field_project_gallery",
+                  "label": "Project Gallery",
+                  "name": "project_gallery",
+                  "type": "gallery",
+                  "instructions": "Add multiple images. The first image will display on page load. Drag to reorder.",
+                  "required": 1,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "preview_size": "medium",
+                  "insert": "append",
+                  "library": "all",
+                  "min": 1,
+                  "max": 0,
+                  "mime_types": "",
+                  "parent_repeater": "field_projects_list"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
         "layout_reviews": {
           "key": "layout_reviews",
           "name": "reviews",
@@ -803,6 +917,39 @@
           ],
           "min": "",
           "max": ""
+        },
+        "layout_careers": {
+          "key": "layout_careers",
+          "name": "careers",
+          "label": "Careers Module",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_careers_selection",
+              "label": "Careers Selection (Drag & Drop)",
+              "name": "careers_selection",
+              "type": "post_object",
+              "instructions": "Drag and drop to reorder careers. Leave empty to show all careers.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+              },
+              "post_type": [
+                "careers"
+              ],
+              "taxonomy": [],
+              "allow_null": 0,
+              "multiple": 1,
+              "return_format": "object",
+              "ui": 1,
+              "parent_repeater": "field_flexible_content"
+            }
+          ],
+          "min": "",
+          "max": ""
         }
       },
       "button_label": "Add Module",
@@ -816,6 +963,27 @@
         "param": "page_template",
         "operator": "==",
         "value": "templates/template-home.php"
+      }
+    ],
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/template-about.php"
+      }
+    ],
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/template-past-projects.php"
+      }
+    ],
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/template-careers.php"
       }
     ],
     [
@@ -835,5 +1003,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1745938527
+  "modified": 1745938700
 }

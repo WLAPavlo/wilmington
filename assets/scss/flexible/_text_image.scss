@@ -2,6 +2,7 @@
    Text/Image Section Styles
    ========================================================================== */
 
+/* Base module styles */
 .module--text-image {
   padding: 50px 0;
   background: #fff;
@@ -48,6 +49,83 @@
   .row {
     align-items: center;
     min-height: 400px;
+  }
+}
+
+/* About Us Page Specific Styles */
+.template-about {
+  .module--text-image {
+    .text-image__text {
+      h2 {
+        font-size: 60px !important;
+        font-weight: 400 !important;
+
+        @include media-breakpoint-down(lg) {
+          font-size: 40px !important;
+        }
+      }
+
+      h3 {
+        font-size: 24px !important;
+        color: $main-color !important;
+        margin-bottom: 15px !important;
+
+        @include media-breakpoint-down(sm) {
+          font-size: 20px !important;
+        }
+      }
+
+      h4 {
+        font-size: 20px !important;
+        color: $text-color !important;
+        margin-bottom: 12px !important;
+
+        @include media-breakpoint-down(sm) {
+          font-size: 18px !important;
+        }
+      }
+
+      p {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+
+        @include media-breakpoint-down(sm) {
+          font-size: 15px !important;
+        }
+      }
+    }
+  }
+}
+
+/* Home Page Specific Styles */
+.template-home {
+  .module--text-image {
+    .text-image__text {
+      h2 {
+        font-size: 60px !important;
+
+        @include media-breakpoint-down(md) {
+          font-size: 48px !important;
+        }
+
+        @include media-breakpoint-down(sm) {
+          font-size: 36px !important;
+        }
+      }
+    }
+  }
+}
+
+/* Past Projects Page Specific Styles */
+.template-past-projects {
+  .module--text-image {
+    .text-image__text {
+      h2 {
+        font-size: 60px !important;
+        font-weight: 400 !important;
+
+      }
+    }
   }
 }
 
@@ -177,10 +255,6 @@
 
 .text-image__img {
   transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
 }
 
 .text-image__video {

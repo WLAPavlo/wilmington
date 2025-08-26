@@ -91,3 +91,48 @@ function custom_file_upload_styling( $content, $field, $value, $lead_id, $form_i
 
     return $content;
 }
+
+// Pre-populate job title field from URL parameter
+add_filter( 'gform_field_value_job_title', 'populate_job_title_field' );
+
+function populate_job_title_field( $value ) {
+    if ( isset( $_GET['job-title'] ) ) {
+        return sanitize_text_field( $_GET['job-title'] );
+    }
+    return $value;
+}
+
+// Add custom CSS classes to form fields for better targeting
+add_filter( 'gform_field_css_class', 'add_custom_field_classes', 10, 3 );
+
+function add_custom_field_classes( $classes, $field, $form ) {
+    // Add classes based on field labels or admin labels
+    $label = strtolower( $field->label );
+    $admin_label = strtolower( $field->adminLabel );
+
+    if ( strpos( $label, 'name' ) !== false || strpos( $admin_label, 'name' ) !== false ) {
+        $classes .= ' name-field';
+    }
+
+    if ( strpos( $label, 'email' ) !== false || strpos( $admin_label, 'email' ) !== false ) {
+        $classes .= ' email-field';
+    }
+
+    if ( strpos( $label, 'phone' ) !== false || strpos( $admin_label, 'phone' ) !== false ) {
+        $classes .= ' phone-field';
+    }
+
+    if ( strpos( $label, 'company' ) !== false || strpos( $admin_label, 'company' ) !== false ) {
+        $classes .= ' company-field';
+    }
+
+    if ( strpos( $label, 'message' ) !== false || strpos( $admin_label, 'message' ) !== false || $field->type == 'textarea' ) {
+        $classes .= ' message-field';
+    }
+
+    if ( $field->type == 'fileupload' ) {
+        $classes .= ' file-field';
+    }
+
+    return $classes;
+}

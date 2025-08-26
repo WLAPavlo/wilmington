@@ -83,6 +83,17 @@ comment or delete styles below*/
 @import 'templates/default';
 
 /* ---------------------------------------
+	TMPL: About page
+--------------------------------------- */
+@import 'templates/about';
+
+/* ---------------------------------------
+	TMPL: Past Projects page
+--------------------------------------- */
+@import 'templates/past-projects';
+
+
+/* ---------------------------------------
 	TMPL: Contact page
 --------------------------------------- */
 @import 'templates/contact';
@@ -91,6 +102,12 @@ comment or delete styles below*/
 	TMPL: Products page
 --------------------------------------- */
 @import 'templates/products';
+
+/* ---------------------------------------
+	TMPL: Careers page
+--------------------------------------- */
+@import 'templates/careers';
+
 
 /* -----------------------------------------
   Home slider

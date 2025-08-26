@@ -1,0 +1,39 @@
+/* ==========================================================================
+   About Us Page Template Styles
+   ========================================================================== */
+
+.template-about {
+  .main-content {
+    padding: 0 !important;
+  }
+
+  .entry__content {
+    margin-bottom: 30px;
+  }
+}
+
+/* About Us Company Story Section Styling */
+.about-company-story {
+  .entry__content {
+    h2 {
+      font-family: $font-heebo;
+      font-size: 60px;
+      font-weight: 400;
+      color: $text-color;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-family: $font-poppins;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #666;
+      margin-bottom: 20px;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+    }
+  }
+}
