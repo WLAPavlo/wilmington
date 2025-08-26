@@ -23,14 +23,23 @@ if ( empty( $projects ) ) {
                 if ( empty( $project_gallery ) ) {
                     continue;
                 }
-
-                // Use first image from gallery
-                $main_image = $project_gallery[0];
                 ?>
                 <div class="project-item">
-                    <div class="project-item__image">
-                        <?php echo wp_get_attachment_image( $main_image['ID'], 'large', false, array( 'class' => 'project-item__img' ) ); ?>
-                    </div>
+                    <?php if ( count( $project_gallery ) > 1 ): ?>
+                        <!-- Multiple images - show as slider -->
+                        <div class="project-item__gallery" id="project-gallery-<?php echo $index; ?>">
+                            <?php foreach ( $project_gallery as $image ): ?>
+                                <div class="project-gallery__slide">
+                                    <?php echo wp_get_attachment_image( $image['ID'], 'large', false, array( 'class' => 'project-gallery__img' ) ); ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                        <!-- Single image -->
+                        <div class="project-item__image">
+                            <?php echo wp_get_attachment_image( $project_gallery[0]['ID'], 'large', false, array( 'class' => 'project-item__img' ) ); ?>
+                        </div>
+                    <?php endif; ?>
 
                     <div class="project-item__content">
                         <?php if ( $project_title ): ?>
@@ -51,4 +60,52 @@ if ( empty( $projects ) ) {
             <?php endforeach; ?>
         </div>
     </div>
+
+    <?php
+    // Check if any project has multiple images for slider initialization
+    $has_sliders = false;
+    foreach ( $projects as $project ) {
+        if ( !empty( $project['project_gallery'] ) && count( $project['project_gallery'] ) > 1 ) {
+            $has_sliders = true;
+            break;
+        }
+    }
+    ?>
+
+    <?php if ( $has_sliders ): ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                <?php foreach ( $projects as $index => $project ): ?>
+                <?php if ( !empty( $project['project_gallery'] ) && count( $project['project_gallery'] ) > 1 ): ?>
+                $('#project-gallery-<?php echo $index; ?>').slick({
+                    dots: true,
+                    arrows: true,
+                    infinite: true,
+                    speed: 500,
+                    fade: true,
+                    cssEase: 'ease-in-out',
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: false,
+                    adaptiveHeight: false,
+                    prevArrow: '<button type="button" class="slick-prev"></button>',
+                    nextArrow: '<button type="button" class="slick-next"></button>',
+                    customPaging: function(slider, i) {
+                        return '<button type="button"></button>';
+                    },
+                    responsive: [
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                arrows: true,
+                                dots: true
+                            }
+                        }
+                    ]
+                });
+                <?php endif; ?>
+                <?php endforeach; ?>
+            });
+        </script>
+    <?php endif; ?>
 </section>

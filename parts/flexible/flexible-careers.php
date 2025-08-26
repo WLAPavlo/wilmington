@@ -26,8 +26,8 @@ if ( empty( $careers_to_display ) ) {
 ?>
 
     <section class="module module--careers <?= $module_class; ?>" <?= $module_id_attr; ?>>
-        <div class="container">
-            <div class="careers-list">
+        <div class="careers-list">
+            <div class="container">
                 <?php foreach ( $careers_to_display as $career ): ?>
                     <?php
                     $career_id = is_object( $career ) ? $career->ID : $career;
@@ -38,7 +38,6 @@ if ( empty( $careers_to_display ) ) {
                     <div class="career-item">
                         <div class="career-item__header">
                             <h2 class="career-item__title"><?php echo esc_html( $career_title ); ?></h2>
-                            <p class="career-item__subtitle">Wilmington Door & Hardware is now looking for an independent-minded, solutions-oriented Installation Technician for our road crews. This individual will...</p>
                         </div>
 
                         <?php if ( $career_content ): ?>
@@ -48,9 +47,6 @@ if ( empty( $careers_to_display ) ) {
                         <?php endif; ?>
 
                         <div class="career-item__actions">
-                            <a href="<?php echo esc_url( $career_permalink ); ?>" class="career-item__btn career-item__btn--outline">
-                                View Details
-                            </a>
                             <a href="<?php echo esc_url( home_url( '/employment/?job-title=' . urlencode( $career_title ) ) ); ?>"
                                class="career-item__btn career-item__btn--teal">
                                 Submit Resume

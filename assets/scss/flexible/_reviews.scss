@@ -10,11 +10,11 @@
 /* Reviews Slider */
 .reviews-slider {
   position: relative;
-  max-width: 1200px; // Ще більше збільшено
+  max-width: 1200px;
   margin: 0 auto;
 
   .slick-slide {
-    padding: 0 15px; // Зменшено padding
+    padding: 0 15px;
 
     @include media-breakpoint-down(sm) {
       padding: 0 10px;
