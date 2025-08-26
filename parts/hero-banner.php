@@ -20,7 +20,11 @@ if ( is_page() ) {
     $page_title = get_the_title();
     $featured_image = get_the_post_thumbnail_url( get_the_ID(), 'full_hd' );
 } elseif ( is_archive() ) {
-    $page_title = get_the_archive_title();
+    if ( is_post_type_archive( 'products' ) ) {
+        $page_title = 'PRODUCTS';
+    } else {
+        $page_title = get_the_archive_title();
+    }
     // For archive pages, try to get featured image from archive page or use default
     if ( is_post_type_archive( 'products' ) ) {
         // Try to get featured image from Products archive page if it exists

@@ -13,9 +13,12 @@ $section_video = get_sub_field('section_video');
 if ( empty( $content ) && empty( $section_image ) && empty( $section_video ) ) {
     return;
 }
+
+
+$text_position_class = $text_position === 'right' ? ' text-right' : '';
 ?>
 
-<section class="module module--text-image <?= $module_class; ?>" <?= $module_id_attr; ?>>
+<section class="module module--text-image<?= $text_position_class; ?> <?= $module_class; ?>" <?= $module_id_attr; ?>>
     <div class="container">
         <div class="row align-items-center">
             <?php if ( $text_position === 'left' ): ?>
@@ -84,4 +87,3 @@ if ( empty( $content ) && empty( $section_image ) && empty( $section_video ) ) {
         </div>
     </div>
 </section>
-

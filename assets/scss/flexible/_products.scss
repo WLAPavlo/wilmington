@@ -149,7 +149,6 @@
 
   &--bottom {
     justify-content: center;
-    padding-right: 20px;
 
     @include media-breakpoint-down(sm) {
       flex-direction: column;
