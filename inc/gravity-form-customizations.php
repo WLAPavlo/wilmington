@@ -134,5 +134,15 @@ function add_custom_field_classes( $classes, $field, $form ) {
         $classes .= ' file-field';
     }
 
+    // Add project-related field classes
+    if ( strpos( $label, 'project' ) !== false || strpos( $admin_label, 'project' ) !== false ) {
+        if ( strpos( $label, 'name' ) !== false || strpos( $admin_label, 'name' ) !== false ) {
+            $classes .= ' project-name-field';
+        }
+        if ( strpos( $label, 'address' ) !== false || strpos( $admin_label, 'address' ) !== false ) {
+            $classes .= ' project-address-field';
+        }
+    }
+
     return $classes;
 }

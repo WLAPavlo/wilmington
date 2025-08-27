@@ -2,8 +2,15 @@
 
 }
 
+p{
+	font-family: $font-poppins;
+	font-size: 16px;
+	color: #6a6a6a;
+}
+
 .contact__content {
 	margin-bottom: 50px;
+	text-align: center;
 }
 
 .contact__form {
@@ -14,12 +21,8 @@
 	margin-top: 50px;
 }
 
-.contact__map { 
+.contact__map {
 	height: 450px;
-}
-
-.contact__content{
-	margin-bottom: 50px;
 }
 
 .contact-link {
@@ -61,6 +64,542 @@
 
 		&:hover, &:focus {
 			text-decoration: underline;
+		}
+	}
+}
+
+/* ==========================================================================
+   Contact Page Gravity Forms Styling - Two Column Layout
+   ========================================================================== */
+
+.contact {
+	.gform_wrapper {
+		max-width: 1200px !important;
+		margin: 0 auto !important;
+		padding: 0 !important;
+		background: transparent !important;
+
+		// Hide form title and description
+		.gform_title {
+			display: none !important;
+		}
+
+		.gform_description {
+			display: none !important;
+		}
+
+		// Form fields container - CSS Grid Layout
+		.gform_fields {
+			display: grid !important;
+			grid-template-columns: 1fr 1fr !important;
+			grid-template-rows: repeat(5, auto) !important;
+			column-gap: 70px !important;
+			row-gap: 20px !important;
+			margin: 0 !important;
+			padding: 0 !important;
+			list-style: none !important;
+			align-items: start !important;
+
+			@include media-breakpoint-down(md) {
+				grid-template-columns: 1fr !important;
+				grid-template-rows: auto !important;
+				row-gap: 15px !important;
+			}
+		}
+
+		// Individual field styling
+		.gfield {
+			margin: 0 !important;
+			padding: 0 !important;
+			list-style: none !important;
+			position: relative !important;
+			width: 100% !important;
+
+			// Field ordering for two-column layout
+			&:nth-child(1) { grid-column: 1; grid-row: 1; } // First Name
+			&:nth-child(2) { grid-column: 1; grid-row: 2; } // Last Name
+			&:nth-child(3) { grid-column: 1; grid-row: 3; } // Organization
+			&:nth-child(4) { grid-column: 1; grid-row: 4; } // Phone
+			&:nth-child(5) { grid-column: 1; grid-row: 5; } // Email
+			&:nth-child(6) { grid-column: 2; grid-row: 1; } // Project Name
+			&:nth-child(7) { grid-column: 2; grid-row: 2; } // Project Address
+			&:nth-child(8) { grid-column: 2; grid-row: 3; } // File Upload
+			&:nth-child(9) {
+				grid-column: 2;
+				grid-row: 4;
+				grid-row-end: 6;
+				display: flex;
+				flex-direction: column;
+			} // Comments (spans 2 rows)
+
+			@include media-breakpoint-down(md) {
+				&:nth-child(1), &:nth-child(2), &:nth-child(3),
+				&:nth-child(4), &:nth-child(5), &:nth-child(6),
+				&:nth-child(7), &:nth-child(8), &:nth-child(9) {
+					grid-column: 1 !important;
+					grid-row: auto !important;
+					grid-row-end: auto !important;
+					display: block !important;
+				}
+			}
+
+			// File upload field - fixed styling for 50/50 layout
+			&.file-field,
+			&[class*="fileupload"],
+			&:has(.ginput_container_fileupload) {
+				display: flex !important;
+				flex-direction: row !important;
+				gap: 0 !important;
+				align-items: flex-start !important;
+				background: transparent !important;
+				padding: 0 !important;
+				border: none !important;
+				border-radius: 0 !important;
+				height: 60px !important;
+
+				// File upload description - 50% width, left side
+				.gfield_description {
+					display: flex !important;
+					align-items: center !important;
+					margin: 0 !important;
+					color: #2a2929 !important;
+					font-size: 16px !important;
+					line-height: 1.4 !important;
+					font-family: $font-poppins !important;
+					text-align: left !important;
+					width: 50% !important;
+					flex: 0 0 50% !important;
+					padding-left: 10px !important;
+					height: 60px !important;
+					order: 1 !important;
+				}
+
+				// File upload container - 50% width, right side
+				.ginput_container_fileupload {
+					position: relative !important;
+					width: 50% !important;
+					flex: 0 0 50% !important;
+					height: 60px !important;
+					padding-left: 10px !important;
+					order: 2 !important;
+
+					// Hide default file input
+					input[type="file"] {
+						position: absolute !important;
+						opacity: 0 !important;
+						width: 100% !important;
+						height: 100% !important;
+						cursor: pointer !important;
+						z-index: 2 !important;
+						top: 0 !important;
+						left: 0 !important;
+					}
+
+					// Custom upload button
+					&::after {
+						content: 'UPLOAD FILE' !important;
+						display: flex !important;
+						align-items: center !important;
+						justify-content: center !important;
+						width: 100% !important;
+						height: 60px !important;
+						padding: 0 !important;
+						background: transparent !important;
+						color: #2a2929 !important;
+						font-weight: 400 !important;
+						text-transform: uppercase !important;
+						letter-spacing: 1px !important;
+						cursor: pointer !important;
+						transition: all 0.3s ease !important;
+						font-size: 16px !important;
+						font-family: $font-poppins !important;
+						border: 1px solid #2a2929 !important;
+						position: relative !important;
+						z-index: 1 !important;
+						text-align: center !important;
+						white-space: nowrap !important;
+						box-sizing: border-box !important;
+
+						&:hover {
+							border-color: $main-color !important;
+							color: $main-color !important;
+						}
+					}
+
+					// Hide validation messages and rules
+					.gfield_validation_message,
+					.validation_message,
+					.gform_fileupload_rules {
+						display: none !important;
+					}
+				}
+			}
+
+			// Hide all labels by default
+			.gfield_label {
+				position: absolute !important;
+				overflow: hidden !important;
+				clip: rect(1px, 1px, 1px, 1px) !important;
+				width: 1px !important;
+				height: 1px !important;
+				margin: -1px !important;
+				padding: 0 !important;
+				border: 0 !important;
+				word-wrap: normal !important;
+				clip-path: inset(50%) !important;
+			}
+
+			// Base input styling
+			input[type="text"],
+			input[type="email"],
+			input[type="tel"],
+			input[type="url"],
+			textarea,
+			select {
+				width: 100% !important;
+				padding: 15px 20px !important;
+				border: 1px solid #2a2929 !important;
+				background: #fff !important;
+				color: #2a2929 !important;
+				font-size: 16px !important;
+				font-family: $font-poppins !important;
+				transition: all 0.3s ease !important;
+				box-shadow: none !important;
+				outline: none !important;
+				height: 60px !important;
+				box-sizing: border-box !important;
+				text-align: left !important;
+				margin: 0 !important;
+
+				&::placeholder {
+					color: #2a2929 !important;
+					font-family: $font-poppins !important;
+					font-size: 16px !important;
+					opacity: 1 !important;
+					text-align: left !important;
+				}
+
+				&:focus {
+					border-color: $main-color !important;
+					box-shadow: 0 0 0 3px rgba($main-color, 0.1) !important;
+					outline: none !important;
+				}
+
+				@include media-breakpoint-down(sm) {
+					padding: 12px 16px !important;
+					font-size: 14px !important;
+					height: 55px !important;
+				}
+			}
+
+			// Textarea specific styling - spans full height in right column (2 rows)
+			textarea {
+				min-height: 140px !important;
+				height: 140px !important;
+				resize: vertical !important;
+				padding-top: 15px !important;
+				padding-bottom: 15px !important;
+				text-align: left !important;
+				flex: 1 !important;
+
+				@include media-breakpoint-down(md) {
+					min-height: 120px !important;
+					height: auto !important;
+					flex: none !important;
+				}
+			}
+
+			// Error styling
+			&.gfield_error {
+				input, textarea, select {
+					border-color: #dc3545 !important;
+					background: rgba(220, 53, 69, 0.05) !important;
+				}
+
+				.validation_message {
+					display: block !important;
+					position: absolute !important;
+					top: calc(100% + 5px) !important;
+					left: 0 !important;
+					background: #dc3545 !important;
+					color: #fff !important;
+					padding: 8px 12px !important;
+					font-size: 14px !important;
+					z-index: 10 !important;
+					box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+					&::before {
+						content: '' !important;
+						position: absolute !important;
+						bottom: 100% !important;
+						left: 15px !important;
+						width: 0 !important;
+						height: 0 !important;
+						border-left: 5px solid transparent !important;
+						border-right: 5px solid transparent !important;
+						border-bottom: 5px solid #dc3545 !important;
+					}
+				}
+			}
+		}
+
+		// Submit button styling - spans both columns
+		.gform_footer {
+			grid-column: 1 / -1 !important;
+			text-align: left !important;
+			margin: 0 !important;
+			border: none !important;
+			background: transparent !important;
+			margin-left: calc(50% + 34px) !important; // Position on right side
+
+			@include media-breakpoint-down(md) {
+				padding: 25px 0 0 0 !important;
+				margin-left: 0 !important;
+				text-align: center !important;
+			}
+
+			input[type="submit"] {
+				background: $main-color !important;
+				color: #fff !important;
+				border: 1px solid $main-color !important;
+				padding: 15px 30px !important;
+				font-size: 18px !important;
+				font-weight: 700 !important;
+				text-transform: uppercase !important;
+				letter-spacing: 1px !important;
+				cursor: pointer !important;
+				font-family: $font-poppins !important;
+				transition: all 0.3s ease !important;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+				outline: none !important;
+				width: 100% !important;
+				height: auto !important;
+
+				&:hover {
+					background: transparent !important;
+					color: $main-color !important;
+					border-color: $main-color !important;
+					transform: translateY(-2px) !important;
+					box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+				}
+
+				&:focus {
+					outline: none !important;
+					box-shadow: 0 0 0 3px rgba($main-color, 0.3) !important;
+				}
+
+				@include media-breakpoint-down(sm) {
+					padding: 12px 25px !important;
+					font-size: 16px !important;
+				}
+			}
+		}
+
+		// Confirmation message styling
+		.gform_confirmation_message {
+			background: #d4edda !important;
+			border: 2px solid #c3e6cb !important;
+			padding: 20px !important;
+			color: #155724 !important;
+			text-align: center !important;
+			font-size: 16px !important;
+			font-family: $font-poppins !important;
+			margin: 20px 0 !important;
+			grid-column: 1 / -1 !important;
+		}
+
+		// Loading state
+		&.gform_ajax_spinner {
+			opacity: 0.7 !important;
+			pointer-events: none !important;
+		}
+	}
+}
+
+/* Additional fixes for button styling */
+.contact {
+	// Override any conflicting button styles
+	.gform_wrapper {
+		.gform_footer {
+			input[type="submit"],
+			button[type="submit"],
+			.button {
+				background: $main-color !important;
+				color: #fff !important;
+				border: 2px solid $main-color !important;
+				padding: 15px 30px !important;
+				font-size: 18px !important;
+				font-weight: 700 !important;
+				text-transform: uppercase !important;
+				letter-spacing: 2px !important;
+				cursor: pointer !important;
+				font-family: $font-poppins !important;
+				transition: all 0.3s ease !important;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+				outline: none !important;
+				width: 100% !important;
+				height: auto !important;
+				line-height: 1.2 !important;
+				text-decoration: none !important;
+				display: inline-block !important;
+
+				&:hover,
+				&:focus {
+					background: transparent !important;
+					color: $main-color !important;
+					border-color: $main-color !important;
+					transform: translateY(-2px) !important;
+					box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+					text-decoration: none !important;
+				}
+			}
+		}
+	}
+}
+
+/* Contact Page Layout Improvements */
+.template-contact {
+	.main-content {
+		padding: 60px 0 !important;
+
+		@include media-breakpoint-down(md) {
+			padding: 50px 0 !important;
+		}
+
+		@include media-breakpoint-down(sm) {
+			padding: 40px 0 !important;
+		}
+	}
+
+	.contact__content {
+		margin-bottom: 60px !important;
+		text-align: center !important;
+
+		@include media-breakpoint-down(md) {
+			margin-bottom: 50px !important;
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-bottom: 40px !important;
+		}
+
+		h1 {
+			font-family: $font-heebo !important;
+			font-size: 48px !important;
+			font-weight: 400 !important;
+			color: $text-color !important;
+			margin-bottom: 25px !important;
+			text-align: center !important;
+
+			@include media-breakpoint-down(lg) {
+				font-size: 42px !important;
+			}
+
+			@include media-breakpoint-down(md) {
+				font-size: 36px !important;
+			}
+
+			@include media-breakpoint-down(sm) {
+				font-size: 28px !important;
+			}
+		}
+
+		p {
+			font-family: $font-poppins !important;
+			font-size: 18px !important;
+			color: #666 !important;
+			line-height: 1.6 !important;
+			text-align: center !important;
+			max-width: 800px !important;
+			margin: 0 auto 20px auto !important;
+
+			@include media-breakpoint-down(sm) {
+				font-size: 16px !important;
+			}
+		}
+	}
+
+	.contact__form {
+		margin-bottom: 60px !important;
+
+		@include media-breakpoint-down(md) {
+			margin-bottom: 50px !important;
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-bottom: 40px !important;
+		}
+	}
+
+	.contact__links {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 15px !important;
+		margin-top: 30px !important;
+		text-align: center !important;
+
+		.contact-link {
+			padding-left: 0 !important;
+			font-size: 16px !important;
+			color: #666 !important;
+
+			&::before {
+				display: none !important;
+			}
+
+			a {
+				color: $main-color !important;
+				font-weight: 600 !important;
+
+				&:hover {
+					color: darken($main-color, 10%) !important;
+				}
+			}
+		}
+	}
+}
+
+/* Additional responsive improvements */
+@include media-breakpoint-down(sm) {
+	.contact {
+		.gform_wrapper {
+			.gform_fields {
+				padding: 0 10px !important;
+			}
+
+			.gfield {
+				&.file-field,
+				&[class*="fileupload"],
+				&:has(.ginput_container_fileupload) {
+					// Залишаємо 50/50 навіть на мобільних
+					flex-direction: row !important;
+					height: 60px !important;
+					gap: 0 !important;
+
+					.gfield_description {
+						width: 50% !important;
+						flex: 0 0 50% !important;
+						padding-right: 5px !important;
+						height: 60px !important;
+						text-align: left !important;
+						font-size: 12px !important;
+						order: 1 !important;
+					}
+
+					.ginput_container_fileupload {
+						width: 50% !important;
+						flex: 0 0 50% !important;
+						padding-left: 5px !important;
+						order: 2 !important;
+
+						&::after {
+							padding: 10px 15px !important;
+							font-size: 12px !important;
+							height: 60px !important;
+						}
+					}
+				}
+			}
 		}
 	}
 }

@@ -65,7 +65,6 @@
 	@include media-breakpoint-down(sm) {
 		gap: 8px; // Reduced gap between icon and text on mobile
 		font-size: 15px;
-		// Не використовуємо justify-content: center тут
 	}
 
 	// Remove icons from all items by default
@@ -102,13 +101,10 @@
 			}
 		}
 
-		// ВИПРАВЛЕННЯ: Центруємо блок телефону на мобільній версії
 		@include media-breakpoint-down(sm) {
-			// Центруємо весь блок телефону
 			justify-self: center;
 			align-self: center;
 
-			// Або альтернативний спосіб - обгортаємо в додатковий div
 			width: fit-content;
 			margin: 0 auto;
 		}
@@ -215,21 +211,20 @@
 
 .footer__logo-img,
 .footer__logo img {
-	// Зменшуємо розміри лого для кращого відображення
-	max-width: 250px; // Зменшено з 360px
+	max-width: 250px;
 	height: auto;
 	width: auto;
 
 	@include media-breakpoint-down(lg) {
-		max-width: 220px; // Зменшено з 300px
+		max-width: 220px;
 	}
 
 	@include media-breakpoint-down(md) {
-		max-width: 200px; // Зменшено з 280px
+		max-width: 200px;
 	}
 
 	@include media-breakpoint-down(sm) {
-		max-width: 180px; // Трохи зменшено з 200px
+		max-width: 180px;
 	}
 }
 
@@ -237,7 +232,7 @@
 	color: #666;
 	font-size: 16px;
 	line-height: 1.4;
-	max-width: 250px; // Відповідає новому розміру лого
+	max-width: 250px;
 	width: 100%;
 
 	@include media-breakpoint-down(lg) {
@@ -272,7 +267,6 @@
 	}
 }
 
-/* Mobile-first responsive layout - ПРАВИЛЬНИЙ ПОРЯДОК */
 @include media-breakpoint-down(sm) {
 	.footer {
 		text-align: center;
@@ -290,12 +284,10 @@
 				padding-right: 5px;
 			}
 
-			// CONTACT INFO ПЕРШИЙ (order: 1) - Contact Us блок
 			.col-lg-3:nth-child(1) {
 				order: 1;
 			}
 
-			// MENU COLUMNS ДРУГИЙ (order: 2) - Меню колонки
 			.col-lg-3:nth-child(2) {
 				order: 2;
 			}
@@ -304,7 +296,6 @@
 				order: 3;
 			}
 
-			// LOGO AND COPYRIGHT ОСТАННІЙ (order: 4) - Лого і копірайт
 			.col-lg-3:nth-child(4) {
 				order: 4;
 				margin-bottom: 0;
@@ -317,13 +308,10 @@
 			text-align: center;
 		}
 
-		// ВИПРАВЛЕННЯ: Спеціальне центрування для всіх контактних елементів
 		.footer__contact-item {
-			// Центруємо кожен контактний елемент
 			width: fit-content;
 			margin: 0 auto;
 
-			// Спеціально для телефону - зберігаємо іконку поруч
 			&--phone {
 				display: flex;
 				align-items: center;
@@ -351,7 +339,6 @@
 			justify-content: flex-start;
 		}
 
-		// Normal desktop order - повертаємо нормальний порядок
 		.col-lg-3 {
 			order: 0;
 		}

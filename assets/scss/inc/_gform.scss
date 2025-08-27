@@ -17,13 +17,151 @@
 	position: relative;
 	margin-bottom: 20px;
 	list-style: none;
+	width: 100%;
 }
 
 .gform_hidden {
 	display: none;
 }
 
+// Override any grid layouts for contact forms
+.template-contact {
+	.gform_fields {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 20px !important;
+	}
+
+	.gfield {
+		width: 100% !important;
+		margin-bottom: 0 !important;
+	}
+}
+
 $fields-gap: $grid-gutter-width;
+@include media-breakpoint-up(md) {
+	// Disable grid layout for contact forms
+	.template-contact {
+		.gf_left_half,
+		.gf_right_half {
+			float: none !important;
+			width: 100% !important;
+			margin-right: 0 !important;
+			margin-left: 0 !important;
+		}
+
+		.gf_left_third,
+		.gf_middle_third,
+		.gf_right_third {
+			float: none !important;
+			width: 100% !important;
+			margin-right: 0 !important;
+			margin-left: 0 !important;
+		}
+	}
+
+	// Keep original grid for other forms
+	.gf_left_half,
+	.gf_right_half {
+		.template-contact & {
+			float: none !important;
+			width: 100% !important;
+		}
+
+		&:not(.template-contact *) {
+			float: left;
+			width: calc(50% - #{$fields-gap / 2});
+		}
+
+		&:not(.template-contact *) + .gfield:not(.gf_left_half):not(.gf_right_half) {
+			clear: both;
+		}
+	}
+
+	.gf_left_third,
+	.gf_middle_third,
+	.gf_right_third {
+		.template-contact & {
+			float: none !important;
+			width: 100% !important;
+		}
+
+		&:not(.template-contact *) {
+			float: left;
+			width: calc(33.3333% - #{$fields-gap / 3});
+		}
+
+		&:not(.template-contact *) + .gfield:not(.gf_left_third):not(.gf_middle_third):not(.gf_right_third) {
+			clear: both;
+		}
+	}
+
+	.gf_left_half:not(.template-contact *) {
+		margin-right: #{$fields-gap / 2};
+	}
+
+	.gf_right_half:not(.template-contact *) {
+		margin-left: #{$fields-gap / 2};
+
+		+ .gfield {
+			clear: both;
+		}
+	}
+
+	.gf_left_third:not(.template-contact *) {
+		margin-right: #{$fields-gap * 2 / 3};
+	}
+
+	.gf_right_third:not(.template-contact *) {
+		margin-left: #{$fields-gap * 2 / 3};
+
+		+ .gfield {
+			clear: both;
+		}
+	}
+
+	.gf_middle_third:not(.template-contact *) {
+		margin-right: #{$fields-gap / 3};
+		margin-left: #{$fields-gap / 3};
+	}
+}
+
+// Legacy support for non-contact forms
+@include media-breakpoint-up(md) {
+	body:not(.template-contact) {
+		.gf_left_half {
+			margin-right: #{$fields-gap / 2};
+		}
+
+		.gf_right_half {
+			margin-left: #{$fields-gap / 2};
+
+			+ .gfield {
+				clear: both;
+			}
+		}
+
+		.gf_left_third {
+			margin-right: #{$fields-gap * 2 / 3};
+		}
+
+		.gf_right_third {
+			margin-left: #{$fields-gap * 2 / 3};
+
+			+ .gfield {
+				clear: both;
+			}
+		}
+
+		.gf_middle_third {
+			margin-right: #{$fields-gap / 3};
+			margin-left: #{$fields-gap / 3};
+		}
+	}
+}
+
+// Original styles moved to legacy section
+/*
 @include media-breakpoint-up(md) {
 	.gf_left_half,
 	.gf_right_half {
@@ -75,6 +213,7 @@ $fields-gap: $grid-gutter-width;
 		margin-left: #{$fields-gap / 3};
 	}
 }
+*/
 
 .ginput_complex {
 	> span {
@@ -158,6 +297,45 @@ uncomment 2 rows bellow: ".hidden_label {" and "}"
 .gform_footer {
 	position: relative;
 	text-align: right; /*aligning of submit button*/
+
+	// Force button styling for contact forms
+	.template-contact & {
+		text-align: center !important;
+
+		input[type="submit"],
+		button[type="submit"],
+		.button {
+			background: $main-color !important;
+			color: #fff !important;
+			border: 2px solid $main-color !important;
+			padding: 15px 60px !important;
+			font-size: 18px !important;
+			font-weight: 700 !important;
+			text-transform: uppercase !important;
+			letter-spacing: 2px !important;
+			cursor: pointer !important;
+			border-radius: 8px !important;
+			font-family: $font-poppins !important;
+			transition: all 0.3s ease !important;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+			outline: none !important;
+			min-width: 200px !important;
+			height: auto !important;
+			line-height: 1.2 !important;
+			text-decoration: none !important;
+			display: inline-block !important;
+
+			&:hover,
+			&:focus {
+				background: transparent !important;
+				color: $main-color !important;
+				border-color: $main-color !important;
+				transform: translateY(-2px) !important;
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+				text-decoration: none !important;
+			}
+		}
+	}
 }
 
 .gform_ajax_spinner {

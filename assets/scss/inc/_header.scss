@@ -177,7 +177,6 @@ body.admin-bar {
 		gap: 15px;
 	}
 
-	/* Mobile Facebook Link - ОТДЕЛЬНЫЕ СТИЛИ ДЛЯ МОБИЛЬНОЙ */
 	.mobile-facebook-link {
 		display: flex;
 		align-items: center;
@@ -195,7 +194,7 @@ body.admin-bar {
 
 		i {
 			font-size: 20px;
-			color: #000 !important; // Черная иконка на мобильных
+			color: #000 !important;
 			transition: color 0.3s ease;
 		}
 
@@ -539,7 +538,6 @@ body.admin-bar {
 		}
 	}
 
-	/* Header Social Links - ОТДЕЛЬНЫЕ СТИЛИ ДЛЯ ДЕСКТОПА */
 	.header-social {
 		display: flex;
 		align-items: center;
@@ -551,7 +549,7 @@ body.admin-bar {
 			justify-content: center;
 			width: 24px;
 			height: 24px;
-			color: #000 !important; // Черный цвет для десктопа
+			color: #000 !important;
 			text-decoration: none;
 			transition: all 0.3s ease;
 
@@ -562,7 +560,7 @@ body.admin-bar {
 
 			i {
 				font-size: 14px;
-				color: #000 !important; // Черная иконка на десктопе
+				color: #000 !important;
 				transition: color 0.3s ease;
 			}
 

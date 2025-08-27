@@ -141,7 +141,7 @@ body {
 
     .gform_fields {
       display: flex !important;
-      flex-wrap: wrap !important;
+      flex-direction: column !important;
       gap: 20px !important;
       margin: 0 !important;
       padding: 0 !important;
@@ -150,8 +150,9 @@ body {
         margin-bottom: 0 !important;
         padding: 0 !important;
         list-style: none !important;
+        width: 100% !important;
 
-        // Full width fields
+        // All fields should be full width by default
         &.name-field,
         &.lastname-field,
         &.company-field,
@@ -167,16 +168,86 @@ body {
           flex: 1 1 100% !important;
           width: 100% !important;
           display: flex !important;
+          flex-direction: row !important;
           gap: 20px !important;
           align-items: stretch !important;
 
+          // Force two-column layout on mobile
           @include media-breakpoint-down(sm) {
-            flex-direction: column !important;
-            gap: 15px !important;
-            align-items: flex-start !important;
+            gap: 10px !important;
+            flex-direction: row !important;
+            display: flex !important;
           }
 
-          // Description area - left side 50%
+          @media (max-width: 480px) {
+            gap: 8px !important;
+            flex-direction: row !important;
+            display: flex !important;
+          }
+        }
+
+        // Description area - left side 50%
+        .gfield_description {
+          flex: 1 1 50% !important;
+          width: 50% !important;
+          display: flex !important;
+          align-items: center !important;
+          color: rgba(255, 255, 255, 0.9) !important;
+          font-size: 16px !important;
+          line-height: 1.4 !important;
+          font-weight: 400 !important;
+          font-family: $font-poppins !important;
+          margin: 0 !important;
+          padding: 10px 15px !important;
+          background: transparent !important;
+          height: 75px !important;
+          box-sizing: border-box !important;
+          order: 1 !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          min-width: 0 !important;
+
+          @include media-breakpoint-down(sm) {
+            flex: 1 1 50% !important;
+            width: 50% !important;
+            padding: 8px 10px !important;
+            font-size: 13px !important;
+            line-height: 1.2 !important;
+            min-width: 0 !important;
+          }
+
+          @media (max-width: 480px) {
+            flex: 1 1 50% !important;
+            width: 50% !important;
+            padding: 6px 8px !important;
+            font-size: 12px !important;
+            line-height: 1.1 !important;
+            min-width: 0 !important;
+          }
+        }
+
+        // Upload button container - right side 50%
+        .ginput_container_fileupload {
+          flex: 1 1 50% !important;
+          width: 50% !important;
+          position: relative !important;
+          height: 75px !important;
+          order: 2 !important;
+          min-width: 0 !important;
+
+          @include media-breakpoint-down(sm) {
+            flex: 1 1 50% !important;
+            width: 50% !important;
+            min-width: 0 !important;
+          }
+
+          @media (max-width: 480px) {
+            flex: 1 1 50% !important;
+            width: 50% !important;
+            min-width: 0 !important;
+          }
+
+          // Description area - right side 50%
           .gfield_description {
             flex: 1 1 48% !important;
             width: 48% !important;
@@ -192,7 +263,7 @@ body {
             background: transparent !important;
             height: 75px !important;
             box-sizing: border-box !important;
-            order: 1 !important;
+            order: 2 !important;
 
             @include media-breakpoint-down(sm) {
               flex: 1 1 100% !important;
@@ -203,245 +274,218 @@ body {
               order: 1 !important;
             }
           }
-
-          // Upload button container - right side 50%
-          .ginput_container_fileupload {
-            flex: 1 1 48% !important;
-            width: 48% !important;
-            position: relative !important;
-            height: 75px !important;
-            order: 2 !important;
-
-            @include media-breakpoint-down(sm) {
-              flex: 1 1 100% !important;
-              width: 100% !important;
-              order: 2 !important;
-            }
-
-            // Description area - right side 50%
-            .gfield_description {
-              flex: 1 1 48% !important;
-              width: 48% !important;
-              display: flex !important;
-              align-items: center !important;
-              color: rgba(255, 255, 255, 0.9) !important;
-              font-size: 16px !important;
-              line-height: 1.5 !important;
-              font-weight: 400 !important;
-              font-family: $font-poppins !important;
-              margin: 0 !important;
-              padding: 15px 20px !important;
-              background: transparent !important;
-              height: 75px !important;
-              box-sizing: border-box !important;
-              order: 2 !important;
-
-              @include media-breakpoint-down(sm) {
-                flex: 1 1 100% !important;
-                width: 100% !important;
-                padding: 15px 20px !important;
-                height: auto !important;
-                min-height: 75px !important;
-                order: 1 !important;
-              }
-            }
-            .gfield_validation_message,
-            .validation_message,
-            .gform_fileupload_rules,
-            div:not([class]):not([id]) {
-              display: none !important;
-            }
-
-            input[type="file"] {
-              position: absolute !important;
-              opacity: 0 !important;
-              width: 100% !important;
-              height: 100% !important;
-              cursor: pointer !important;
-              z-index: 2 !important;
-              top: 0 !important;
-              left: 0 !important;
-            }
-
-            // Custom file upload button - full width, same height as other fields
-            &::after {
-              content: 'UPLOAD FILE' !important;
-              display: flex !important;
-              align-items: center !important;
-              justify-content: center !important;
-              background: transparent !important;
-              border: 1px solid #fff !important;
-              padding: 0 20px !important;
-              color: #fff !important;
-              font-weight: 600 !important;
-              text-transform: uppercase !important;
-              letter-spacing: 1px !important;
-              text-align: center !important;
-              cursor: pointer !important;
-              transition: all 0.3s ease !important;
-              border-radius: 0 !important;
-              font-size: 16px !important;
-              font-family: $font-poppins !important;
-              width: 100% !important;
-              height: 75px !important;
-              box-sizing: border-box !important;
-              position: absolute !important;
-              top: 0 !important;
-              left: 0 !important;
-
-              &:hover {
-                background: rgba(255, 255, 255, 0.1) !important;
-                border-color: #fff !important;
-              }
-
-              @include media-breakpoint-down(sm) {
-                padding: 0 16px !important;
-                font-size: 14px !important;
-              }
-            }
-          }
-
-          // Hide the label
-          .gfield_label {
-            position: absolute !important;
-            overflow: hidden !important;
-            clip: rect(1px, 1px, 1px, 1px) !important;
-            width: 1px !important;
-            height: 1px !important;
-            margin: -1px !important;
-            padding: 0 !important;
-            border: 0 !important;
-            word-wrap: normal !important;
-            clip-path: inset(50%) !important;
-          }
-        }
-
-        // Hide all labels by default except for file field description
-        &:not(.file-field) {
-          label.gfield_label {
-            position: absolute !important;
-            overflow: hidden !important;
-            clip: rect(1px, 1px, 1px, 1px) !important;
-            width: 1px !important;
-            height: 1px !important;
-            margin: -1px !important;
-            padding: 0 !important;
-            border: 0 !important;
-            word-wrap: normal !important;
-            clip-path: inset(50%) !important;
-          }
-        }
-
-        // For file field, hide the label but show description
-        &.file-field {
-          label.gfield_label {
-            position: absolute !important;
-            overflow: hidden !important;
-            clip: rect(1px, 1px, 1px, 1px) !important;
-            width: 1px !important;
-            height: 1px !important;
-            margin: -1px !important;
-            padding: 0 !important;
-            border: 0 !important;
-            word-wrap: normal !important;
-            clip-path: inset(50%) !important;
-          }
-        }
-
-        // Base input styling
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="url"],
-        textarea,
-        select {
-          width: 100% !important;
-          height: 75px !important;
-          padding: 15px 20px !important;
-          border: 1px solid #fff !important;
-          background: transparent !important;
-          color: #fff !important;
-          font-size: 16px !important;
-          border-radius: 0 !important;
-          font-family: $font-poppins !important;
-          transition: all 0.3s ease !important;
-
-          &::placeholder {
-            color: #ffffff!important;
-            font-family: $font-poppins !important;
-          }
-
-          &:focus {
-            outline: none !important;
-            background: transparent !important;
-            border-color: #fff !important;
-            box-shadow: none !important;
-          }
-
-          @include media-breakpoint-down(sm) {
-            padding: 12px 16px !important;
-            font-size: 14px !important;
-          }
-        }
-
-        // Textarea specific styling
-        textarea {
-          min-height: 150px !important;
-          resize: vertical !important;
-        }
-
-        // Error styling
-        &.gfield_error {
-          input, textarea, select {
-            border-color: #ff6b6b !important;
-            background: rgba(255, 107, 107, 0.1) !important;
-          }
-
-          .validation_message {
+          .gfield_validation_message,
+          .validation_message,
+          .gform_fileupload_rules,
+          div:not([class]):not([id]) {
             display: none !important;
           }
+
+          input[type="file"] {
+            position: absolute !important;
+            opacity: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            cursor: pointer !important;
+            z-index: 2 !important;
+            top: 0 !important;
+            left: 0 !important;
+          }
+
+          // Custom file upload button - full width, same height as other fields
+          &::after {
+            content: 'UPLOAD FILE' !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: transparent !important;
+            border: 1px solid #fff !important;
+            padding: 0 15px !important;
+            color: #fff !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            text-align: center !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            border-radius: 0 !important;
+            font-size: 16px !important;
+            font-family: $font-poppins !important;
+            width: 100% !important;
+            height: 75px !important;
+            box-sizing: border-box !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.1) !important;
+              border-color: #fff !important;
+            }
+
+            @include media-breakpoint-down(sm) {
+              padding: 0 10px !important;
+              font-size: 12px !important;
+              letter-spacing: 0.5px !important;
+            }
+          }
+        }
+
+        // Hide the label
+        .gfield_label {
+          position: absolute !important;
+          overflow: hidden !important;
+          clip: rect(1px, 1px, 1px, 1px) !important;
+          width: 1px !important;
+          height: 1px !important;
+          margin: -1px !important;
+          padding: 0 !important;
+          border: 0 !important;
+          word-wrap: normal !important;
+          clip-path: inset(50%) !important;
         }
       }
-    }
 
-    // Submit button styling
-    .gform_footer {
-      text-align: center !important;
-      padding: 0 !important;
-      margin: 0 !important;
+      // Hide all labels by default except for file field description
+      &:not(.file-field) {
+        label.gfield_label {
+          position: absolute !important;
+          overflow: hidden !important;
+          clip: rect(1px, 1px, 1px, 1px) !important;
+          width: 1px !important;
+          height: 1px !important;
+          margin: -1px !important;
+          padding: 0 !important;
+          border: 0 !important;
+          word-wrap: normal !important;
+          clip-path: inset(50%) !important;
+        }
+      }
 
-      input[type="submit"] {
-        background: #fff !important;
-        color: $main-color !important;
-        border: 2px solid #fff !important;
-        padding: 15px 60px !important;
-        font-size: 20px !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 5px !important;
-        cursor: pointer !important;
-        border-radius: 0 !important;
+      // For file field, hide the label but show description
+      &.file-field {
+        label.gfield_label {
+          position: absolute !important;
+          overflow: hidden !important;
+          clip: rect(1px, 1px, 1px, 1px) !important;
+          width: 1px !important;
+          height: 1px !important;
+          margin: -1px !important;
+          padding: 0 !important;
+          border: 0 !important;
+          word-wrap: normal !important;
+          clip-path: inset(50%) !important;
+        }
+      }
+
+      // Base input styling
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="url"],
+      textarea,
+      select {
         width: 100% !important;
-        font-family: $font-poppins !important;
         height: 75px !important;
+        padding: 15px 20px !important;
+        border: 1px solid #fff !important;
+        background: transparent !important;
+        color: #fff !important;
+        font-size: 16px !important;
+        border-radius: 0 !important;
+        font-family: $font-poppins !important;
+        transition: all 0.3s ease !important;
 
-        &:hover {
+        &::placeholder {
+          color: #ffffff!important;
+          font-family: $font-poppins !important;
+        }
+
+        &:focus {
+          outline: none !important;
           background: transparent !important;
-          color: #fff !important;
           border-color: #fff !important;
+          box-shadow: none !important;
+        }
+
+        @include media-breakpoint-down(sm) {
+          padding: 12px 16px !important;
+          font-size: 14px !important;
+        }
+      }
+
+      // Textarea specific styling
+      textarea {
+        min-height: 150px !important;
+        resize: vertical !important;
+      }
+
+      // Error styling
+      &.gfield_error {
+        input, textarea, select {
+          border-color: #ff6b6b !important;
+          background: rgba(255, 107, 107, 0.1) !important;
+        }
+
+        .validation_message {
+          display: none !important;
         }
       }
     }
+  }
 
-    // Confirmation message styling
-    .gform_confirmation_message {
-      background: rgba(255, 255, 255, 0.1) !important;
-      border: 2px solid rgba(255, 255, 255, 0.3) !important;
-      padding: 20px !important;
-      color: #fff !important;
-      text-align: center !important;
-      border-radius: 4px !important;
+  // Submit button styling
+  .gform_footer {
+    margin-top: 0 !important;
+    padding: 0 !important;
+
+    input[type="submit"],
+    .gform_button {
+      background: #fff !important;
+      color: $main-color !important;
+      border: none !important;
+      padding: 15px 40px !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1px !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      border-radius: 0 !important;
+      font-family: $font-poppins !important;
+      width: 100% !important;
+      height: 60px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.9) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      &:active {
+        transform: translateY(0) !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      @include media-breakpoint-down(sm) {
+        padding: 12px 30px !important;
+        font-size: 14px !important;
+        height: 55px !important;
+      }
     }
+  }
+
+  // Confirmation message styling
+  .gform_confirmation_message {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    padding: 20px !important;
+    color: #fff !important;
+    text-align: center !important;
+    border-radius: 4px !important;
   }
 }
 

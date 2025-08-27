@@ -206,12 +206,17 @@ button, .btn, .button, input[type='submit'], input[type='reset'], input[type='bu
 	cursor: pointer;
 	transition: all 0.3s ease;
 	font-size: 16px;
+	height: auto;
+	line-height: 1.2;
+	display: inline-block;
+	box-sizing: border-box;
 
 	&:hover, &:focus {
 		background-color: darken($main-color, 7.5);
 		color: #fff;
 		transform: translateY(-2px);
 		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+		text-decoration: none;
 	}
 }
 
@@ -220,5 +225,6 @@ button, .btn, .button, input[type='submit'], input[type='reset'], input[type='bu
 .btn, .button {
 	&:hover, &:focus {
 		/*basic hover and focus effects*/
+		text-decoration: none;
 	}
 }
