@@ -110,8 +110,14 @@ function add_custom_field_classes( $classes, $field, $form ) {
     $label = strtolower( $field->label );
     $admin_label = strtolower( $field->adminLabel );
 
-    if ( strpos( $label, 'name' ) !== false || strpos( $admin_label, 'name' ) !== false ) {
+    // Name field detection (for three-column layout)
+    if ( strpos( $label, 'name' ) !== false || strpos( $admin_label, 'name' ) !== false || $field->type == 'name' ) {
         $classes .= ' name-field';
+    }
+
+    // Address field detection (for two-column layout)
+    if ( strpos( $label, 'address' ) !== false || strpos( $admin_label, 'address' ) !== false || $field->type == 'address' ) {
+        $classes .= ' address-field';
     }
 
     if ( strpos( $label, 'email' ) !== false || strpos( $admin_label, 'email' ) !== false ) {

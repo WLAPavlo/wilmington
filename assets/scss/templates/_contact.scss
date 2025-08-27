@@ -571,7 +571,6 @@ p{
 				&.file-field,
 				&[class*="fileupload"],
 				&:has(.ginput_container_fileupload) {
-					// Залишаємо 50/50 навіть на мобільних
 					flex-direction: row !important;
 					height: 60px !important;
 					gap: 0 !important;

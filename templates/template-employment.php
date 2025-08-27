@@ -9,9 +9,6 @@ $job_title = isset( $_GET['job-title'] ) ? sanitize_text_field( $_GET['job-title
 ?>
 
     <main class="main-content template-employment" style="padding: 0;">
-        <!-- Hero Banner -->
-        <?php get_template_part( 'parts/hero-banner' ); ?>
-
         <!-- Employment Form Section -->
         <section class="module module--employment-form">
             <div class="container">
@@ -39,7 +36,7 @@ $job_title = isset( $_GET['job-title'] ) ? sanitize_text_field( $_GET['job-title
                                 <?php endif; ?>
 
                                 <div class="employment-form__content">
-                                    <?php echo do_shortcode( "[gravityform id='{$employment_form['id']}' title='false' description='false' ajax='true']" ); ?>
+                                    <?php echo do_shortcode( "[gravityform id='{$employment_form['id']}' title='false' description='false' ajax='true' field_values='job_title=" . urlencode($job_title) . "']" ); ?>
                                 </div>
                             </div>
                         <?php endif; ?>

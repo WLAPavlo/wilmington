@@ -1,0 +1,97 @@
+
+h2 {
+  padding: 10px 0;
+  font-size: 28px;
+  font-family: $font-heebo;
+}
+
+p{
+  font-size: 16px;
+  font-family: $font-poppins;
+}
+
+body .gform_wrapper {
+  max-width: 1200px !important;
+  padding: 30px 0 !important;
+  margin: 0 auto !important;
+}
+
+.gform-theme--foundation,
+.gform_fields {
+  row-gap: 10px !important;
+}
+
+body .gform_wrapper .gform_heading {
+  display: none !important;
+}
+
+body .gform_wrapper input[type="text"],
+body .gform_wrapper input[type="email"],
+body .gform_wrapper input[type="tel"],
+body .gform_wrapper input[type="date"],
+body .gform_wrapper textarea,
+body .gform_wrapper select {
+  width: 100% !important;
+  height: 50px;
+  padding: 10px !important;
+  border: 1px solid #333 !important;
+  border-radius: 2px !important;
+  margin-bottom: 15px !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+body .gform_wrapper ::placeholder {
+  text-align: left !important;
+  color: #777 !important;
+}
+
+body .gform_wrapper .gfield_label {
+  display: block !important;
+  font-weight: bold !important;
+  margin-bottom: 5px !important;
+  font-size: 14px !important;
+  color: #000 !important;
+}
+
+body .gform_wrapper .gfield_required {
+  color: #a00 !important;
+  margin-left: 3px !important;
+}
+
+body .gform_wrapper .gfield_radio {
+  display: flex !important;
+  gap: 20px !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+}
+
+body .gform_wrapper .gfield_radio li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  margin: 0 !important;
+}
+
+body .gform_wrapper .gfield_radio label {
+  font-weight: normal !important;
+  margin: 0 !important;
+  color: #000 !important;
+  display: flex;
+  padding-left: 5px;
+}
+
+body .gform_wrapper .gform_button {
+  background-color: $main-color !important;
+  height: 50px !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 12px 20% !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  text-transform: uppercase !important;
+  display: block !important;
+  letter-spacing: 3px !important;
+  margin-left: auto !important;
+}
