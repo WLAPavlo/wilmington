@@ -22,17 +22,22 @@ if ( is_page() ) {
 } elseif ( is_archive() ) {
     if ( is_post_type_archive( 'products' ) ) {
         $page_title = 'PRODUCTS';
-    } else {
-        $page_title = get_the_archive_title();
-    }
-    // For archive pages, try to get featured image from archive page or use default
-    if ( is_post_type_archive( 'products' ) ) {
         // Try to get featured image from Products archive page if it exists
         $products_page = get_page_by_path( 'products' );
         if ( $products_page ) {
             $featured_image = get_the_post_thumbnail_url( $products_page->ID, 'full_hd' );
         }
+    } elseif ( is_post_type_archive( 'careers' ) ) {
+        $page_title = 'CAREERS';
+        // Try to get featured image from Careers archive page if it exists
+        $careers_page = get_page_by_path( 'careers' );
+        if ( $careers_page ) {
+            $featured_image = get_the_post_thumbnail_url( $careers_page->ID, 'full_hd' );
+        }
+    } else {
+        $page_title = get_the_archive_title();
     }
+    // For archive pages, try to get featured image from archive page or use default
 } elseif ( is_category() || is_tag() ) {
     $page_title = single_term_title( '', false );
 } elseif ( is_search() ) {

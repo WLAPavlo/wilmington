@@ -45,15 +45,11 @@ body.admin-bar {
 	}
 }
 
-/* Partners Bar */
+/* Partners Bar - Desktop */
 .partners-bar {
 	background: #fff;
 	padding: 8px 0;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.7);
-
-	@include media-breakpoint-down(sm) {
-		display: none; // Hide desktop partners on mobile
-	}
 }
 
 .partners-bar__logos {
@@ -64,11 +60,6 @@ body.admin-bar {
 
 	@include media-breakpoint-down(md) {
 		gap: 20px;
-	}
-
-	@include media-breakpoint-down(sm) {
-		gap: 15px;
-		padding: 0 10px;
 	}
 }
 
@@ -83,10 +74,6 @@ body.admin-bar {
 
 		&:hover {
 			color: $main-color;
-		}
-
-		@include media-breakpoint-down(sm) {
-			font-size: 11px;
 		}
 	}
 
@@ -108,10 +95,6 @@ body.admin-bar {
 
 		&:hover {
 			opacity: 1;
-		}
-
-		@include media-breakpoint-down(sm) {
-			max-height: 28px;
 		}
 	}
 }
@@ -145,242 +128,118 @@ body.admin-bar {
 		}
 
 		@include media-breakpoint-down(sm) {
-			max-height: 50px; // Smaller logo on mobile
+			max-height: 60px;
 		}
 	}
 
 	img {
-	}
-
-	@include media-breakpoint-down(sm) {
-		text-align: left;
-		margin-bottom: 0;
-		width: auto;
-		flex: 1;
+		@include media-breakpoint-down(sm) {
+			max-height: 60px;
+			width: auto;
+		}
 	}
 }
 
-.header-content {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	justify-content: space-between;
-	min-height: 80px;
+/* ==========================================================================
+   Mobile Header Styles
+   ========================================================================== */
 
-	@include media-breakpoint-down(sm) {
-		min-height: auto;
-		align-items: flex-start;
-		text-align: left;
-	}
-}
-
-/* Header Top Row */
-.header-top {
-	display: flex;
-	justify-content: flex-end;
-	padding-bottom: 8px;
-
-	@include media-breakpoint-down(md) {
-		justify-content: center;
-		padding-bottom: 5px;
+@include media-breakpoint-down(sm) {
+	/* Body padding adjustment for mobile */
+	body {
+		padding-top: 200px !important;
 	}
 
-	@include media-breakpoint-down(sm) {
+	/* Mobile Header Layout */
+	.mobile-header-row {
+		background: #fff;
+		width: 100%;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	/* Mobile Header Top - Logo + Burger */
+	.mobile-header-top {
+		display: flex;
+		align-items: center;
 		justify-content: space-between;
 		padding: 15px;
-		background: #fff; // White background instead of grey
-		border-top: 1px solid #ddd;
-		margin: 0;
-		width: 100%;
-		order: 3;
-	}
-}
-
-/* Header Bottom Row */
-.header-bottom {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-
-	@include media-breakpoint-down(md) {
-		justify-content: center;
+		background: #fff;
 	}
 
-	@include media-breakpoint-down(sm) {
-		justify-content: center;
-		width: 100%;
-		padding: 0 15px;
-		order: 2;
-	}
-}
-
-/* Header Contacts */
-.header-contacts {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	gap: 20px;
-	flex-wrap: nowrap;
-
-	@include media-breakpoint-down(lg) {
+	/* Mobile Header Middle - Facebook + Phone + CTA */
+	.mobile-header-middle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 15px;
+		background: #fff;
 		gap: 15px;
 	}
 
-	@include media-breakpoint-down(md) {
-		justify-content: center;
-		flex-wrap: wrap;
-		gap: 10px;
-	}
-
-	@include media-breakpoint-down(sm) {
-		justify-content: flex-start;
-		flex-wrap: nowrap;
-		gap: 0;
-	}
-}
-
-.header-contacts__item {
-	a, span {
+	/* Mobile Facebook Link - ОТДЕЛЬНЫЕ СТИЛИ ДЛЯ МОБИЛЬНОЙ */
+	.mobile-facebook-link {
 		display: flex;
 		align-items: center;
-		gap: 6px;
-		color: $main-color;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		color: #000 !important;
 		text-decoration: none;
-		font-size: 20px;
-		font-weight: 500;
-		transition: color 0.3s ease;
-		white-space: nowrap;
+		transition: all 0.3s ease;
 
 		&:hover {
-			color: $black;
+			color: $main-color !important;
+			text-decoration: none;
 		}
 
 		i {
 			font-size: 20px;
-			color: $main-color; // Changed from #000 to $main-color for desktop
-			flex-shrink: 0;
-
-			@include media-breakpoint-down(sm) {
-				font-size: 18px;
-			}
+			color: #000 !important; // Черная иконка на мобильных
+			transition: color 0.3s ease;
 		}
 
-		@include media-breakpoint-down(md) {
-			font-size: 14px;
-			gap: 4px;
-		}
-
-		@include media-breakpoint-down(sm) {
-			font-size: 18px;
-			gap: 5px;
-			font-weight: 700;
-			color: $main-color;
-		}
-	}
-
-	// Hide all items except phone on mobile
-	@include media-breakpoint-down(sm) {
-		&:not(:first-child) {
-			display: none;
-		}
-	}
-
-	// Special styling for phone on mobile
-	.header-contacts__phone {
-		@include media-breakpoint-down(sm) {
-			font-size: 18px !important;
-			font-weight: 700 !important;
+		&:hover i {
 			color: $main-color !important;
-
-			i {
-				color: $main-color !important;
-			}
 		}
 	}
-}
 
-/* Header Social Links */
-.header-social {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-
-	&__link {
+	/* Mobile Phone Link */
+	.mobile-phone-link {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		width: 24px;
-		height: 24px;
-		color: $black;
+		gap: 8px;
+		color: $main-color !important;
 		text-decoration: none;
-		transition: all 0.3s ease;
+		font-size: 18px;
+		font-weight: 700;
+		flex: 1;
+		justify-content: center;
 
 		&:hover {
-			color: $main-color;
-			transform: translateY(-1px);
+			color: darken($main-color, 15%) !important;
+			text-decoration: none;
 		}
 
 		i {
-			font-size: 14px;
-			color: $main-color; // Changed from #000 to $main-color
-
-			@include media-breakpoint-down(sm) {
-				font-size: 16px;
-			}
-		}
-
-		@include media-breakpoint-down(sm) {
-			width: 28px;
-			height: 28px;
+			font-size: 20px;
+			color: $main-color;
 		}
 	}
-}
 
-/* Navigation Button Header Styling */
-.nav-item {
-	&.button-header {
-		> .nav-link {
-			background: $main-color;
-			color: #fff !important;
-			font-weight: 700;
-			text-transform: uppercase;
-			border-radius: 4px;
-			padding: 8px 16px;
-			margin-left: 10px;
-			transition: all 0.3s ease;
-			border: 2px solid $main-color;
-			font-size: 18px;
-
-			&:hover {
-				background: transparent;
-				color: $main-color !important;
-				border-color: $main-color;
-			}
-		}
-
-		@include media-breakpoint-down(sm) {
-			display: none; // Hide button from navigation on mobile
-		}
-	}
-}
-
-/* Mobile CTA Button */
-.mobile-cta-button {
-	display: none;
-
-	@include media-breakpoint-down(sm) {
-		display: inline-block;
+	/* Mobile CTA Button */
+	.mobile-cta-button {
 		background: $main-color;
 		color: #fff !important;
 		font-weight: 700;
 		text-transform: uppercase;
-		padding: 8px 16px;
+		padding: 10px 16px;
 		border-radius: 4px;
-		font-size: 13px;
+		font-size: 12px;
 		text-decoration: none;
 		transition: all 0.3s ease;
 		border: 2px solid $main-color;
-		cursor: pointer;
+		white-space: nowrap;
 
 		&:hover {
 			background: transparent;
@@ -389,44 +248,12 @@ body.admin-bar {
 			text-decoration: none;
 		}
 	}
-}
 
-/* ==========================================================================
-   Mobile Navigation Styles
-   ========================================================================== */
-
-@include media-breakpoint-down(sm) {
-	/* Body padding adjustment for mobile */
-	body {
-		padding-top: 280px !important; // Reduced back
-	}
-
-	/* Mobile logo and burger menu on same line */
-	.header .menu-container {
-		.row:first-child {
-			.col-lg-2 {
-				order: 1;
-				padding: 15px;
-				text-align: left;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				width: 100%;
-			}
-
-			.col-lg-10 {
-				order: 2;
-				padding: 0;
-			}
-		}
-	}
-
-	/* Move navbar-toggler to logo row */
+	/* Mobile Burger Menu */
 	.navbar-toggler {
-		margin: 0;
 		border: none;
 		background-color: transparent;
-		padding: 15px; // Bigger padding for larger clickable area
+		padding: 8px;
 		border-radius: 6px;
 		position: relative;
 
@@ -435,11 +262,10 @@ body.admin-bar {
 			box-shadow: none;
 		}
 
-		// Custom burger menu styling
 		.navbar-toggler-icon {
 			display: block;
-			width: 32px; // Bigger burger menu
-			height: 24px;
+			width: 40px;
+			height: 30px;
 			position: relative;
 			transform: rotate(0deg);
 			transition: .5s ease-in-out;
@@ -448,7 +274,7 @@ body.admin-bar {
 			span {
 				display: block;
 				position: absolute;
-				height: 4px; // Thicker lines
+				height: 4px;
 				width: 100%;
 				background: $main-color;
 				border-radius: 2px;
@@ -462,17 +288,17 @@ body.admin-bar {
 				}
 
 				&:nth-child(2) {
-					top: 10px;
+					top: 12px;
 				}
 
 				&:nth-child(3) {
-					top: 20px;
+					top: 24px;
 				}
 			}
 
 			&.open {
 				span:nth-child(1) {
-					top: 10px;
+					top: 12px;
 					transform: rotate(135deg);
 				}
 
@@ -482,43 +308,14 @@ body.admin-bar {
 				}
 
 				span:nth-child(3) {
-					top: 10px;
+					top: 12px;
 					transform: rotate(-135deg);
 				}
 			}
 		}
 	}
 
-	/* Partners bar mobile adjustments - move to bottom */
-	.partners-bar-mobile {
-		order: 4;
-		padding: 15px 0;
-		border-top: 1px solid #11375f;
-		border-bottom: none;
-		margin-top: 15px;
-		background: #fff;
-
-		.partners-bar__logos {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-wrap: wrap;
-			gap: 15px;
-			padding: 0 10px;
-		}
-	}
-
-	/* Header content restructure */
-	.header-content {
-		flex-direction: column;
-		min-height: auto;
-	}
-
-	/* Mobile navbar toggler */
-	.navbar-toggler {
-		// Styles moved above
-	}
-
+	/* Mobile Navigation */
 	.navbar {
 		background-color: transparent !important;
 		width: 100%;
@@ -530,8 +327,8 @@ body.admin-bar {
 		margin-left: 0;
 		width: 100%;
 		background: $main-color;
-		border-radius: 8px;
-		margin-top: 10px;
+		border-radius: 0;
+		margin: 0;
 
 		.nav-item {
 			> a {
@@ -556,6 +353,11 @@ body.admin-bar {
 				> a, > .submenu-toggle {
 					background: rgba(255, 255, 255, 0.1);
 				}
+			}
+
+			// Hide button-header class from mobile navigation
+			&.button-header {
+				display: none;
 			}
 
 			.submenu-toggle {
@@ -611,30 +413,45 @@ body.admin-bar {
 			}
 		}
 	}
-}
 
-/* ==========================================================================
-   Tablet Styles
-   ========================================================================== */
+	/* Mobile Partners Bar */
+	.partners-bar-mobile {
+		padding: 15px 0;
+		border-top: 1px solid #ddd;
+		background: #fff;
 
-@include media-breakpoint-between(sm, lg) {
-	body {
-		padding-top: 160px;
-	}
+		.partners-bar__logos {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 15px;
+		}
 
-	.header-contacts {
-		gap: 15px;
-	}
+		.partners-bar__logo {
+			img {
+				max-height: 28px;
+				width: auto;
+				opacity: 0.8;
 
-	.header-contacts__item {
-		a, span {
-			font-size: 12px;
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			.partner-text {
+				font-size: 11px;
+				font-weight: 600;
+				color: #666;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
 		}
 	}
 }
 
 /* ==========================================================================
-   Desktop Navigation Styles
+   Desktop Styles
    ========================================================================== */
 
 @include media-breakpoint-up(md) {
@@ -646,6 +463,140 @@ body.admin-bar {
 		}
 	}
 
+	/* Header Content */
+	.header-content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: space-between;
+		min-height: 80px;
+	}
+
+	/* Header Top Row */
+	.header-top {
+		display: flex;
+		justify-content: flex-end;
+		padding-bottom: 8px;
+
+		@include media-breakpoint-down(lg) {
+			justify-content: center;
+			padding-bottom: 5px;
+		}
+	}
+
+	/* Header Bottom Row */
+	.header-bottom {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		@include media-breakpoint-down(lg) {
+			justify-content: center;
+		}
+	}
+
+	/* Header Contacts */
+	.header-contacts {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 20px;
+		flex-wrap: nowrap;
+
+		@include media-breakpoint-down(lg) {
+			gap: 15px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+	}
+
+	.header-contacts__item {
+		a, span {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			color: $main-color;
+			text-decoration: none;
+			font-size: 20px;
+			font-weight: 500;
+			transition: color 0.3s ease;
+			white-space: nowrap;
+
+			&:hover {
+				color: $black;
+			}
+
+			i {
+				font-size: 20px;
+				color: $main-color;
+				flex-shrink: 0;
+			}
+
+			@include media-breakpoint-down(lg) {
+				font-size: 14px;
+				gap: 4px;
+			}
+		}
+	}
+
+	/* Header Social Links - ОТДЕЛЬНЫЕ СТИЛИ ДЛЯ ДЕСКТОПА */
+	.header-social {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		&__link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 24px;
+			height: 24px;
+			color: #000 !important; // Черный цвет для десктопа
+			text-decoration: none;
+			transition: all 0.3s ease;
+
+			&:hover {
+				color: $main-color !important;
+				transform: translateY(-1px);
+			}
+
+			i {
+				font-size: 14px;
+				color: #000 !important; // Черная иконка на десктопе
+				transition: color 0.3s ease;
+			}
+
+			&:hover i {
+				color: $main-color !important;
+			}
+		}
+	}
+
+	/* Navigation Button Header Styling */
+	.nav-item {
+		&.button-header {
+			> .nav-link {
+				background: $main-color;
+				color: #fff !important;
+				font-weight: 700;
+				text-transform: uppercase;
+				border-radius: 4px;
+				padding: 8px 16px;
+				margin-left: 10px;
+				transition: all 0.3s ease;
+				border: 2px solid $main-color;
+				font-size: 18px;
+
+				&:hover {
+					background: transparent;
+					color: $main-color !important;
+					border-color: $main-color;
+				}
+			}
+		}
+	}
+
+	/* Navigation Styles */
 	.navbar-nav {
 		justify-content: flex-start;
 		margin-left: 0;
@@ -741,6 +692,26 @@ body.admin-bar {
 		.dropdown-menu {
 			top: 0;
 			left: 100%;
+		}
+	}
+}
+
+/* ==========================================================================
+   Tablet Styles
+   ========================================================================== */
+
+@include media-breakpoint-between(sm, lg) {
+	body {
+		padding-top: 160px;
+	}
+
+	.header-contacts {
+		gap: 15px;
+	}
+
+	.header-contacts__item {
+		a, span {
+			font-size: 12px;
 		}
 	}
 }

@@ -49,7 +49,7 @@ if ( empty( $careers_to_display ) ) {
                         <div class="career-item__actions">
                             <a href="<?php echo esc_url( home_url( '/employment/?job-title=' . urlencode( $career_title ) ) ); ?>"
                                class="career-item__btn career-item__btn--teal">
-                                Submit Resume
+                                SUBMIT RESUME
                             </a>
                         </div>
                     </div>

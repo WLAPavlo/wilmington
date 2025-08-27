@@ -11,6 +11,15 @@
 /* Careers List Module Styles */
 .module--careers {
   background: #fff;
+  padding: 60px 0;
+
+  @include media-breakpoint-down(md) {
+    padding: 50px 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 40px 0;
+  }
 }
 
 .careers-list {
@@ -23,21 +32,38 @@
   transition: all 0.3s ease;
   position: relative;
 
-  // Add border line that's 20% width, centered
+  // Add border line that's 40% width, centered
   &:not(:last-child)::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 15%;
+    left: 20%;
     transform: translateX(-50%);
-    width: 30%;
+    width: 40%;
     height: 2px;
     background-color: $dark-blue;
+
+    @include media-breakpoint-down(md) {
+      left: 50%;
+      width: 100%;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 50px 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 40px 0;
   }
 }
 
 .career-item__header {
   margin-bottom: 30px;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 25px;
+  }
 }
 
 .career-item__title {
@@ -45,9 +71,79 @@
   font-size: 30px;
   font-weight: 400;
   color: #434343;
+  margin-bottom: 0;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 28px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 26px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 24px;
+  }
 }
 
-h6{
+.career-item__content {
+  h6 {
+    color: #626262;
+    font-family: $font-poppins;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 10px 0 10px 0;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 18px;
+    }
+  }
+
+  ul {
+    padding-left: 40px;
+    color: #626262;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-down(sm) {
+      padding-left: 30px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  p {
+    font-family: $font-poppins;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Strong text styling
+  strong {
+    font-weight: 600;
+    color: #434343;
+  }
+}
+
+/* Legacy styles for backward compatibility */
+.module--careers h6 {
   color: #626262;
   font-family: $font-poppins;
   font-size: 20px;
@@ -55,28 +151,19 @@ h6{
   margin: 10px 0 10px 0;
 }
 
-ul{
+.module--careers ul {
   padding-left: 40px;
   color: #626262;
 }
 
-.career-item__content {
-  margin-bottom: 40px;
-  font-family: $font-poppins;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.7;
-  color: #555;
-  max-width: 1560px;
-
-}
-
 .career-item__actions {
+  margin-top: 40px;
   display: flex;
   gap: 20px;
   align-items: center;
 
   @include media-breakpoint-down(sm) {
+    margin-top: 30px;
     flex-direction: column;
     gap: 15px;
     align-items: stretch;
@@ -94,6 +181,7 @@ ul{
   transition: all 0.3s ease;
   font-size: 14px;
   border: 2px solid transparent;
+  border-radius: 6px;
 
   &--teal {
     background: $main-color;
@@ -105,10 +193,14 @@ ul{
       color: $dark-blue;
       border: 2px solid $dark-blue;
       text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
   }
 
   @include media-breakpoint-down(sm) {
     text-align: center;
+    padding: 15px 30px;
+    font-size: 16px;
   }
 }

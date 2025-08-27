@@ -1,48 +1,69 @@
 <?php
 /**
- * Careers Archive Page
+ * Careers Archive Page - Redirect to Careers page template
  */
+
 get_header(); ?>
 
-    <main class="main-content">
+    <main class="main-content template-careers" style="padding: 0;">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <!-- Careers Grid -->
-                    <div class="careers-page__grid">
-                        <?php if ( have_posts() ): ?>
-                            <?php while ( have_posts() ): the_post(); ?>
-                                <div class="careers-page__item">
-                                    <div class="career-tile">
-                                        <div class="career-tile__content">
-                                            <h3 class="career-tile__title"><?php the_title(); ?></h3>
+                <!-- BEGIN of careers content -->
+                <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                    <div class="careers-list">
+                        <?php
+                        $args = array(
+                            'post_type' => 'careers',
+                            'posts_per_page' => -1,
+                            'post_status' => 'publish',
+                            'orderby' => 'menu_order',
+                            'order' => 'ASC'
+                        );
+                        $careers_query = new WP_Query( $args );
 
-                                            <?php if ( get_the_content() ): ?>
-                                                <div class="career-tile__excerpt">
-                                                    <?php echo wp_trim_words( get_the_content(), 20 ); ?>
-                                                </div>
-                                            <?php endif; ?>
+                        if ( $careers_query->have_posts() ):
+                            while ( $careers_query->have_posts() ): $careers_query->the_post();
+                                ?>
+                                <div class="career-item">
+                                    <div class="career-item__header">
+                                        <h2 class="career-item__title">
+                                            <?php the_title(); ?>
+                                        </h2>
+                                    </div>
 
-                                            <div class="career-tile__actions">
-                                                <a href="<?php the_permalink(); ?>" class="btn btn--outline-dark career-tile__details-btn">
-                                                    View Details
-                                                </a>
-                                                <a href="<?php echo esc_url( home_url( '/employment/?job-title=' . urlencode( get_the_title() ) ) ); ?>"
-                                                   class="btn btn--teal career-tile__submit-btn">
-                                                    Submit Resume
-                                                </a>
-                                            </div>
+                                    <?php if ( get_the_content() ): ?>
+                                        <div class="career-item__content">
+                                            <?php the_content(); ?>
                                         </div>
+                                    <?php endif; ?>
+
+                                    <div class="career-item__actions">
+                                        <a href="<?php echo esc_url( home_url( '/employment/?job-title=' . urlencode( get_the_title() ) ) ); ?>"
+                                           class="career-item__btn career-item__btn--teal">
+                                            SUBMIT RESUME
+                                        </a>
                                     </div>
                                 </div>
-                            <?php endwhile; ?>
-                        <?php else: ?>
+                            <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else:
+                            ?>
                             <div class="col-12">
-                                <p class="text-center">No career opportunities found at this time.</p>
+                                <p class="text-center">No career opportunities available at this time.</p>
                             </div>
-                        <?php endif; ?>
+                        <?php
+                        endif;
+                        ?>
                     </div>
                 </div>
+                <!-- END of careers content -->
+
+                <!-- BEGIN of sidebar -->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12 sidebar">
+                    <?php get_sidebar( 'right' ); ?>
+                </div>
+                <!-- END of sidebar -->
             </div>
         </div>
     </main>
