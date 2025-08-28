@@ -264,11 +264,28 @@ To use default gravity form functionality to Hide/Show field label via dashboard
 uncomment 2 rows bellow: ".hidden_label {" and "}"
  */
 
-//.hidden_label {
-.gfield_label {
-	@extend %css-clip;
+.hidden_label {
+	.gfield_label {
+		@extend %css-clip;
+	}
 }
-//}
+
+// Show labels by default, hide only when explicitly set to hidden
+.gfield_label {
+	display: block !important;
+	font-weight: 600 !important;
+	margin-bottom: 8px !important;
+	color: #333 !important;
+	font-size: 16px !important;
+	font-family: $font-poppins !important;
+}
+
+// Show required asterisk
+.gfield_required {
+	color: #dc3545 !important;
+	font-weight: 700 !important;
+	margin-left: 3px !important;
+}
 
 .ginput_container ul {
 	margin-left: 0;
