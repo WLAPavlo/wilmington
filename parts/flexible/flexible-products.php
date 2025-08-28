@@ -38,7 +38,20 @@ if ( $selected_products ) {
                                     <div class="col-lg-9 col-md-7 col-sm-12">
                                         <h2 class="products-section__title"><?php echo esc_html( $section_title ); ?></h2>
 
-                                        <div class="products-section__controls">
+                                        <!-- Right Column Buttons - Mobile Order -->
+                                        <?php if ( $right_buttons ): ?>
+                                            <div class="products-section__buttons products-section__buttons--mobile d-lg-none">
+                                                <?php foreach ( $right_buttons as $button ): ?>
+                                                    <a href="<?php echo esc_url( $button['button_url'] ); ?>"
+                                                       class="btn btn-<?php echo esc_attr( $button['button_color'] ); ?>"
+                                                        <?php echo $button['button_new_tab'] ? 'target="_blank" rel="noopener"' : ''; ?>>
+                                                        <?php echo esc_html( $button['button_text'] ); ?>
+                                                    </a>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <div class="products-section__controls d-none d-lg-block">
                                             <select class="products-filter" id="products-filter">
                                                 <option value="all">All</option>
                                                 <?php if ( $product_categories && !is_wp_error( $product_categories ) ): ?>
@@ -61,7 +74,7 @@ if ( $selected_products ) {
                                     <!-- Right Column - Buttons -->
                                     <div class="col-lg-3 col-md-5 col-sm-12">
                                         <?php if ( $right_buttons ): ?>
-                                            <div class="products-section__buttons products-section__buttons--right">
+                                            <div class="products-section__buttons products-section__buttons--right d-none d-lg-block">
                                                 <?php foreach ( $right_buttons as $button ): ?>
                                                     <a href="<?php echo esc_url( $button['button_url'] ); ?>"
                                                        class="btn btn-<?php echo esc_attr( $button['button_color'] ); ?>"

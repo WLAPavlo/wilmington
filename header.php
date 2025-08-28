@@ -51,7 +51,7 @@ endif; ?>
     <header class="header header--fixed">
         <!-- BEGIN of partners bar - DESKTOP ONLY -->
         <?php if ( have_rows( 'partners_logos', 'options' ) ): ?>
-            <div class="partners-bar d-none d-md-block">
+            <div class="partners-bar d-none d-xl-block">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -91,7 +91,7 @@ endif; ?>
         <!-- BEGIN of main header -->
         <div class="container menu-container px-0 px-md-g">
             <!-- MOBILE LAYOUT -->
-            <div class="row d-md-none mobile-header-row no-gutters">
+            <div class="row d-lg-none mobile-header-row no-gutters">
                 <!-- Mobile Header Top: Logo + Burger -->
                 <div class="col-12">
                     <div class="mobile-header-top">
@@ -137,7 +137,8 @@ endif; ?>
                         <?php endif; ?>
 
                         <!-- CTA Button -->
-                        <a href="/request-quote" class="mobile-cta-button">REQUEST A QUOTE</a>
+                        <a href="<?php echo get_permalink(get_page_by_title('Request A Quote')); ?>"
+                           class="mobile-cta-button button-header">REQUEST A QUOTE</a>
                     </div>
                 </div>
 
@@ -194,7 +195,7 @@ endif; ?>
             </div>
 
             <!-- DESKTOP LAYOUT -->
-            <div class="row no-gutters-xs d-none d-md-flex">
+            <div class="row no-gutters-xs d-none d-lg-flex">
                 <!-- Logo Column -->
                 <div class="col-lg-2 col-md-2 d-flex align-items-center">
                     <div class="logo">
@@ -261,7 +262,7 @@ endif; ?>
                         <!-- Bottom row with navigation -->
                         <div class="header-bottom">
                             <?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-                                <div class="navbar navbar-expand-md">
+                                <div class="navbar navbar-expand-lg">
                                     <nav class="collapse navbar-collapse" id="mainMenu">
                                         <?php wp_nav_menu( array(
                                             'theme_location' => 'header-menu',

@@ -209,7 +209,7 @@
 		 * Close responsive menu on orientation change
 		 */
 		$( window ).on( 'orientationchange', function() {
-			$( '#main-menu' ).dropdown( 'hide' );
+			$( '#mainMenu' ).collapse( 'hide' );
 		} );
 
 		resizeVideo();
@@ -235,6 +235,23 @@
 				nonce: ajax.nonce || ''
 			});
 		}
+
+		// Mobile menu toggle functionality
+		$('.navbar-toggler').on('click', function() {
+			var $target = $($(this).data('target'));
+			var $icon = $(this).find('.navbar-toggler-icon');
+
+			$target.collapse('toggle');
+			$icon.toggleClass('open');
+		});
+
+		// Close mobile menu when clicking outside
+		$(document).on('click', function(e) {
+			if (!$(e.target).closest('.navbar').length) {
+				$('#mainMenu').collapse('hide');
+				$('.navbar-toggler-icon').removeClass('open');
+			}
+		});
 	} );
 
 
@@ -255,7 +272,8 @@
 
 	var resizeVideoCallback = debounce( resizeVideo, 200 );
 	var closeMenuCallback = debounce( function() {
-		$( '#main-menu' ).dropdown( 'hide' );
+		$( '#mainMenu' ).collapse( 'hide' );
+		$('.navbar-toggler-icon').removeClass('open');
 	}, 200 );
 	$( window ).on( 'resize', function() {
 
@@ -271,8 +289,8 @@
 		if ( classes.length ) {
 			var menuBreakpoint = classes.replace( 'navbar-expand-', '' );
 			// Get ::root var value
-			var breakpointWidth = getComputedStyle( document.body ).getPropertyValue( '--breakpoint-' + menuBreakpoint ).replace( /\D/g, '' );
-			if ( (window.innerWidth > breakpointWidth) && ($navBar.find( '.dropdown-menu' ).hasClass( 'show' ) || $( '#main-menu' ).hasClass( 'show' )) ) {
+			var breakpointWidth = 1200; // xl breakpoint
+			if ( (window.innerWidth >= breakpointWidth) && $( '#mainMenu' ).hasClass( 'show' ) ) {
 				closeMenuCallback();
 			}
 		}
