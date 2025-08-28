@@ -8,7 +8,6 @@
             "name": "",
             "aria-label": "",
             "type": "tab",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -26,7 +25,6 @@
             "name": "footer_logo",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -51,7 +49,6 @@
             "name": "copyright",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "Input <code>@year<\/code> to replace static year with dynamic, so it will always shows current year.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -71,7 +68,6 @@
             "name": "",
             "aria-label": "",
             "type": "tab",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -89,7 +85,6 @@
             "name": "email",
             "aria-label": "",
             "type": "email",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -108,7 +103,6 @@
             "name": "phone",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -128,7 +122,6 @@
             "name": "address",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -148,7 +141,6 @@
             "name": "socials",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -169,7 +161,6 @@
                     "name": "social_network",
                     "aria-label": "",
                     "type": "select",
-                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -207,7 +198,6 @@
                     "name": "social_profile",
                     "aria-label": "",
                     "type": "url",
-                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -227,7 +217,6 @@
             "name": "location",
             "aria-label": "",
             "type": "google_map",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -246,7 +235,6 @@
             "name": "",
             "aria-label": "",
             "type": "tab",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -264,7 +252,6 @@
             "name": "ada",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -284,7 +271,6 @@
             "name": "",
             "aria-label": "",
             "type": "tab",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -302,7 +288,6 @@
             "name": "enable_alert_bar",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -323,7 +308,6 @@
             "name": "alert_content",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
@@ -352,7 +336,6 @@
             "name": "alert_text_color",
             "aria-label": "",
             "type": "color_picker",
-            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
@@ -379,7 +362,6 @@
             "name": "alert_background_color",
             "aria-label": "",
             "type": "color_picker",
-            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
@@ -406,7 +388,6 @@
             "name": "footer_contact_title",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -426,7 +407,6 @@
             "name": "footer_office_hours",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -446,7 +426,6 @@
             "name": "footer_menu_columns",
             "aria-label": "",
             "type": "number",
-            "instructions": "Number of menu items per column (default: 6)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {

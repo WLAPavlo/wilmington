@@ -200,6 +200,17 @@
 		align-items: center;
 		text-align: center;
 	}
+
+	p{
+		a {
+			color: #6a6a6a;
+
+			&:hover {
+				text-decoration: none;
+				color: $main-color;
+			}
+		}
+	}
 }
 
 .footer__logo {
@@ -211,20 +222,15 @@
 
 .footer__logo-img,
 .footer__logo img {
-	max-width: 250px;
+	max-width: 360px;
 	height: auto;
 	width: auto;
 
-	@include media-breakpoint-down(lg) {
-		max-width: 220px;
+	@include media-breakpoint-only(xl) {
+		max-width: 280px;
 	}
-
-	@include media-breakpoint-down(md) {
-		max-width: 200px;
-	}
-
-	@include media-breakpoint-down(sm) {
-		max-width: 180px;
+	@include media-breakpoint-only(lg) {
+		max-width: 260px;
 	}
 }
 
@@ -232,7 +238,7 @@
 	color: #666;
 	font-size: 16px;
 	line-height: 1.4;
-	max-width: 250px;
+	max-width: 350px;
 	width: 100%;
 
 	@include media-breakpoint-down(lg) {

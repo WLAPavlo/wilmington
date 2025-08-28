@@ -24,10 +24,28 @@ get_header(); ?>
 
                                 <!-- Submit Resume Button -->
                                 <div class="career-single__actions">
-                                    <a href="<?php echo esc_url( home_url( '/employment/?job-title=' . urlencode( get_the_title() ) ) ); ?>"
-                                       class="btn btn--teal career-single__submit-btn">
-                                        Submit Resume
-                                    </a>
+                                    <?php
+                                    // Get button settings from meta fields
+                                    $button_enabled = get_post_meta( get_the_ID(), 'career_button_enabled', true );
+                                    $button_text = get_post_meta( get_the_ID(), 'career_button_text', true ) ?: 'SUBMIT RESUME';
+                                    $button_url = get_post_meta( get_the_ID(), 'career_button_url', true );
+                                    $button_target = get_post_meta( get_the_ID(), 'career_button_target', true ) ?: '_self';
+
+                                    // Default URL if none specified
+                                    if ( empty( $button_url ) ) {
+                                        $button_url = home_url( '/employment/?job-title=' . urlencode( get_the_title() ) );
+                                    }
+
+                                    // Only show button if enabled (default is enabled)
+                                    if ( $button_enabled !== '0' ):
+                                        ?>
+                                        <a href="<?php echo esc_url( $button_url ); ?>"
+                                           class="btn btn--teal career-single__submit-btn"
+                                           target="<?php echo esc_attr( $button_target ); ?>"
+                                            <?php echo $button_target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                                            <?php echo esc_html( $button_text ); ?>
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
 
                                 <!-- Career Meta -->

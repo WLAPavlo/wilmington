@@ -7,7 +7,6 @@
             "label": "Contact form",
             "name": "contact_form",
             "type": "gravity_forms_field",
-            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {

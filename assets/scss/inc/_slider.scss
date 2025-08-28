@@ -56,13 +56,13 @@
 		@extend %bgcover;
 
 		&::before {
-			content: '';
+			content: "";
 			position: absolute;
+			background-color: rgba(29, 33, 36, 0.16);
 			top: 0;
+			bottom: 0;
 			left: 0;
 			right: 0;
-			bottom: 0;
-			background: rgba(0, 0, 0, 0.4);
 			z-index: 1;
 		}
 	}

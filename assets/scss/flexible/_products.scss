@@ -355,6 +355,7 @@
 .products-section__bottom {
   margin-top: 40px;
   text-align: center;
+  padding-right: 18px;
 
   @include media-breakpoint-down(md) {
     margin-top: 40px;

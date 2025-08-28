@@ -7,7 +7,6 @@
       "label": "Partners Logos",
       "name": "partners_logos",
       "type": "repeater",
-      "instructions": "",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
@@ -27,7 +26,6 @@
           "label": "Partner Logo",
           "name": "partner_logo",
           "type": "image",
-          "instructions": "",
           "required": 0,
           "conditional_logic": 0,
           "wrapper": {
@@ -52,7 +50,6 @@
           "label": "Partner Text",
           "name": "partner_text",
           "type": "text",
-          "instructions": "Text to display for the partner",
           "required": 0,
           "conditional_logic": 0,
           "wrapper": {
@@ -69,7 +66,6 @@
           "label": "Partner Link",
           "name": "partner_link",
           "type": "url",
-          "instructions": "",
           "required": 0,
           "conditional_logic": 0,
           "wrapper": {
@@ -88,7 +84,6 @@
       "label": "Header Phone",
       "name": "header_phone",
       "type": "text",
-      "instructions": "",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
@@ -107,7 +102,6 @@
       "label": "Location Text",
       "name": "header_location_text",
       "type": "text",
-      "instructions": "",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
@@ -126,7 +120,6 @@
       "label": "Social Media Links",
       "name": "header_social_links",
       "type": "repeater",
-      "instructions": "Add social media links for header",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
@@ -146,8 +139,7 @@
           "label": "Social Platform",
           "name": "social_platform",
           "type": "select",
-          "instructions": "",
-          "required": 1,
+          "required": 0,
           "conditional_logic": 0,
           "wrapper": {
             "width": "30",
@@ -176,8 +168,7 @@
           "label": "Social URL",
           "name": "social_url",
           "type": "url",
-          "instructions": "",
-          "required": 1,
+          "required": 0,
           "conditional_logic": 0,
           "wrapper": {
             "width": "70",
