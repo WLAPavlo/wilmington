@@ -63,7 +63,7 @@ if ( empty( $careers_to_display ) ) {
                             if ( $button_enabled !== '0' ):
                                 ?>
                                 <a href="<?php echo esc_url( $button_url ); ?>"
-                                   class="career-item__btn career-item__btn--teal"
+                                   class="btn btn-teal career-item__btn"
                                    target="<?php echo esc_attr( $button_target ); ?>"
                                     <?php echo $button_target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                     <?php echo esc_html( $button_text ); ?>

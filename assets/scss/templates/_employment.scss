@@ -85,30 +85,22 @@ body .gform_wrapper .gfield_radio label {
 }
 
 body .gform_wrapper .gform_button {
+  @extend .btn-form;
   background-color: $main-color !important;
-  height: 50px !important;
   color: #fff !important;
-  border: none !important;
+  height: 50px !important;
   width: 49% !important;
   padding: 12px !important;
   font-size: 16px !important;
-  cursor: pointer !important;
-  text-transform: uppercase !important;
-  display: block !important;
   letter-spacing: 3px !important;
   margin-left: auto !important;
   margin-top: 20px !important;
   border-radius: 2px !important;
-  font-weight: bold !important;
 
   @include media-breakpoint-down(sm) {
     width: 100% !important;
     padding: 12px !important;
   }
-}
-
-body .gform_wrapper .gform_button:hover {
-  opacity: 0.9;
 }
 
 .gfield_label,

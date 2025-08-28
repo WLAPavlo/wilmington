@@ -40,7 +40,7 @@ get_header(); ?>
                                     if ( $button_enabled !== '0' ):
                                         ?>
                                         <a href="<?php echo esc_url( $button_url ); ?>"
-                                           class="btn btn--teal career-single__submit-btn"
+                                           class="btn btn-teal career-single__submit-btn"
                                            target="<?php echo esc_attr( $button_target ); ?>"
                                             <?php echo $button_target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                             <?php echo esc_html( $button_text ); ?>
@@ -61,7 +61,7 @@ get_header(); ?>
                                 <!-- Navigation -->
                                 <div class="career-single__navigation">
                                     <div class="career-single__nav-buttons">
-                                        <a href="<?php echo get_post_type_archive_link( 'careers' ); ?>" class="btn btn--outline-teal career-single__back-btn">
+                                        <a href="<?php echo get_post_type_archive_link( 'careers' ); ?>" class="btn btn-outline-teal career-single__back-btn">
                                             <i class="fas fa-arrow-left"></i>
                                             <?php _e( 'Back to Careers', 'default' ); ?>
                                         </a>
@@ -73,7 +73,7 @@ get_header(); ?>
 
                                         <div class="career-single__nav-adjacent">
                                             <?php if ( $prev_post ): ?>
-                                                <a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="btn btn--outline-dark career-single__nav-prev" title="<?php echo esc_attr( $prev_post->post_title ); ?>">
+                                                <a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="btn btn-outline-dark career-single__nav-prev" title="<?php echo esc_attr( $prev_post->post_title ); ?>">
                                                     <i class="fas fa-chevron-left"></i>
                                                     <span class="career-single__nav-text">
                                                     <small><?php _e( 'Previous', 'default' ); ?></small>
@@ -83,7 +83,7 @@ get_header(); ?>
                                             <?php endif; ?>
 
                                             <?php if ( $next_post ): ?>
-                                                <a href="<?php echo get_permalink( $next_post->ID ); ?>" class="btn btn--outline-dark career-single__nav-next" title="<?php echo esc_attr( $next_post->post_title ); ?>">
+                                                <a href="<?php echo get_permalink( $next_post->ID ); ?>" class="btn btn-outline-dark career-single__nav-next" title="<?php echo esc_attr( $next_post->post_title ); ?>">
                                                 <span class="career-single__nav-text">
                                                     <small><?php _e( 'Next', 'default' ); ?></small>
                                                     <span><?php echo wp_trim_words( $next_post->post_title, 3 ); ?></span>

@@ -29,23 +29,20 @@ h6, .h6 {
 }
 
 .button {
-	padding: 10px 15px;
-	background-color: #52178e;
-	text-transform: uppercase;
-	font-family: sans-serif;
-	font-weight: 700;
-	text-decoration: none;
-	color: #ffffff;
+	/* Base button styles are now handled by Bootstrap classes */
+	/* Use .btn .btn-primary for default buttons */
 }
 
 .button--dark-blue {
-	background-color: #1e3a8a;
-	color: #ffffff;
+	/* Use .btn .btn-dark-blue */
 }
 
 .button--teal {
-	background-color: #00a19a;
-	color: #ffffff;
+	/* Use .btn .btn-teal */
+}
+
+.button--violet {
+	/* Use .btn .btn-violet */
 }
 
 .two-columns {

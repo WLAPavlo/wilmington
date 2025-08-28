@@ -303,33 +303,17 @@ body {
           // Custom file upload button - full width, same height as other fields
           &::after {
             content: 'UPLOAD FILE' !important;
+            @extend .btn;
+            @extend .btn-outline-light;
+            width: 100% !important;
+            height: 75px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            background: transparent !important;
-            border: 1px solid #fff !important;
-            padding: 0 15px !important;
-            color: #fff !important;
-            font-weight: 600 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px !important;
-            text-align: center !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            border-radius: 0 !important;
-            font-size: 16px !important;
-            font-family: $font-poppins !important;
-            width: 100% !important;
-            height: 75px !important;
-            box-sizing: border-box !important;
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
-
-            &:hover {
-              background: rgba(255, 255, 255, 0.1) !important;
-              border-color: #fff !important;
-            }
+            border-radius: 0 !important;
 
             @include media-breakpoint-down(sm) {
               padding: 0 10px !important;
@@ -449,34 +433,7 @@ body {
 
     input[type="submit"],
     .gform_button {
-      background: #fff !important;
-      color: $main-color !important;
-      border: none !important;
-      padding: 15px 40px !important;
-      font-size: 16px !important;
-      font-weight: 600 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 1px !important;
-      cursor: pointer !important;
-      transition: all 0.3s ease !important;
-      border-radius: 0 !important;
-      font-family: $font-poppins !important;
-      width: 100% !important;
-      height: 60px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.9) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-      }
-
-      &:active {
-        transform: translateY(0) !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-      }
+      @extend .btn-form;
 
       @include media-breakpoint-down(sm) {
         padding: 12px 30px !important;

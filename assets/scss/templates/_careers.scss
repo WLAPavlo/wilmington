@@ -171,31 +171,10 @@
 }
 
 .career-item__btn {
-  display: inline-block;
-  padding: 12px 24px;
-  font-family: $font-poppins;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 14px;
-  border: 2px solid transparent;
-  border-radius: 6px;
+  @extend .btn;
 
   &--teal {
-    background: $main-color;
-    color: #fff;
-    border-color: $main-color;
-
-    &:hover {
-      background: transparent;
-      color: $dark-blue;
-      border: 2px solid $dark-blue;
-      text-decoration: none;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
+    @extend .btn-teal;
   }
 
   @include media-breakpoint-down(sm) {

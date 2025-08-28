@@ -64,7 +64,7 @@ if ( $selected_products ) {
                                             <div class="products-section__buttons products-section__buttons--right">
                                                 <?php foreach ( $right_buttons as $button ): ?>
                                                     <a href="<?php echo esc_url( $button['button_url'] ); ?>"
-                                                       class="btn btn--<?php echo esc_attr( $button['button_color'] ); ?>"
+                                                       class="btn btn-<?php echo esc_attr( $button['button_color'] ); ?>"
                                                         <?php echo $button['button_new_tab'] ? 'target="_blank" rel="noopener"' : ''; ?>>
                                                         <?php echo esc_html( $button['button_text'] ); ?>
                                                     </a>
@@ -136,7 +136,7 @@ if ( $selected_products ) {
                             <div class="products-section__buttons products-section__buttons--bottom">
                                 <?php foreach ( $bottom_buttons as $button ): ?>
                                     <a href="<?php echo esc_url( $button['button_url'] ); ?>"
-                                       class="btn btn--<?php echo esc_attr( $button['button_color'] ); ?>"
+                                       class="btn btn-<?php echo esc_attr( $button['button_color'] ); ?>"
                                         <?php echo $button['button_new_tab'] ? 'target="_blank" rel="noopener"' : ''; ?>>
                                         <?php echo esc_html( $button['button_text'] ); ?>
                                     </a>

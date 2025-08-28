@@ -294,19 +294,6 @@
 
 /* Button Styles */
 .btn {
-  display: inline-block;
-  padding: 12px 20px;
-  font-family: $heading-font;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-
   @include media-breakpoint-down(lg) {
     padding: 10px 16px;
     font-size: 13px;
@@ -318,29 +305,11 @@
   }
 
   &--dark-blue {
-    background: $dark-blue;
-    color: #fff;
-    border-color: $dark-blue;
-
-    &:hover {
-      background: transparent;
-      color: $dark-blue;
-      border-color: $dark-blue;
-      text-decoration: none;
-    }
+    @extend .btn-dark-blue;
   }
 
   &--teal {
-    background: $main-color;
-    color: #fff;
-    border-color: $main-color;
-
-    &:hover {
-      background: transparent;
-      color: $main-color;
-      border-color: $main-color;
-      text-decoration: none;
-    }
+    @extend .btn-teal;
   }
 
   @include media-breakpoint-down(sm) {

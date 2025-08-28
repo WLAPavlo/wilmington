@@ -322,35 +322,7 @@ uncomment 2 rows bellow: ".hidden_label {" and "}"
 		input[type="submit"],
 		button[type="submit"],
 		.button {
-			background: $main-color !important;
-			color: #fff !important;
-			border: 2px solid $main-color !important;
-			padding: 15px 60px !important;
-			font-size: 18px !important;
-			font-weight: 700 !important;
-			text-transform: uppercase !important;
-			letter-spacing: 2px !important;
-			cursor: pointer !important;
-			border-radius: 8px !important;
-			font-family: $font-poppins !important;
-			transition: all 0.3s ease !important;
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-			outline: none !important;
-			min-width: 200px !important;
-			height: auto !important;
-			line-height: 1.2 !important;
-			text-decoration: none !important;
-			display: inline-block !important;
-
-			&:hover,
-			&:focus {
-				background: transparent !important;
-				color: $main-color !important;
-				border-color: $main-color !important;
-				transform: translateY(-2px) !important;
-				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
-				text-decoration: none !important;
-			}
+			@extend .btn-form;
 		}
 	}
 }

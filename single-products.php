@@ -60,7 +60,7 @@ get_header(); ?>
                                 <!-- Navigation -->
                                 <div class="product-single__navigation">
                                     <div class="product-single__nav-buttons">
-                                        <a href="<?php echo get_post_type_archive_link( 'products' ); ?>" class="btn btn--outline-teal product-single__back-btn">
+                                        <a href="<?php echo get_post_type_archive_link( 'products' ); ?>" class="btn btn-outline-teal product-single__back-btn">
                                             <i class="fas fa-arrow-left"></i>
                                             <?php _e( 'Back to Products', 'default' ); ?>
                                         </a>
@@ -72,7 +72,7 @@ get_header(); ?>
 
                                         <div class="product-single__nav-adjacent">
                                             <?php if ( $prev_post ): ?>
-                                                <a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="btn btn--outline-dark product-single__nav-prev" title="<?php echo esc_attr( $prev_post->post_title ); ?>">
+                                                <a href="<?php echo get_permalink( $prev_post->ID ); ?>" class="btn btn-outline-dark product-single__nav-prev" title="<?php echo esc_attr( $prev_post->post_title ); ?>">
                                                     <i class="fas fa-chevron-left"></i>
                                                     <span class="product-single__nav-text">
                                                     <small><?php _e( 'Previous', 'default' ); ?></small>
@@ -82,7 +82,7 @@ get_header(); ?>
                                             <?php endif; ?>
 
                                             <?php if ( $next_post ): ?>
-                                                <a href="<?php echo get_permalink( $next_post->ID ); ?>" class="btn btn--outline-dark product-single__nav-next" title="<?php echo esc_attr( $next_post->post_title ); ?>">
+                                                <a href="<?php echo get_permalink( $next_post->ID ); ?>" class="btn btn-outline-dark product-single__nav-next" title="<?php echo esc_attr( $next_post->post_title ); ?>">
                                                 <span class="product-single__nav-text">
                                                     <small><?php _e( 'Next', 'default' ); ?></small>
                                                     <span><?php echo wp_trim_words( $next_post->post_title, 3 ); ?></span>

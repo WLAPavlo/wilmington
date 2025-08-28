@@ -261,6 +261,8 @@ img {
   bottom: 20px;
   right: 20px;
   z-index: 50;
+  width: auto;
+  display: inline-block;
 
   outline: none;
   border: 2px solid $white;

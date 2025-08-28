@@ -283,17 +283,10 @@
 
   // Enhanced button styles with better mobile layout
   .button {
-    display: inline-block;
+    @extend .btn;
     padding: 12px 24px;
     font-size: 20px;
-    font-weight: 600;
     font-family: $font-karla;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    cursor: pointer;
     letter-spacing: 0.5px;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -313,54 +306,19 @@
       padding: 12px 24px;
     }
 
-    &:hover {
-      text-decoration: none;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-
-      @media (max-width: 991px) {
-        transform: none;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      }
-    }
-
     // Default button (purple)
     &:not(.button--dark-blue):not(.button--teal) {
-      background: #52178e;
-      color: #fff;
-      border-color: #52178e;
-
-      &:hover {
-        background: transparent;
-        color: #52178e;
-        border-color: #52178e;
-      }
+      @extend .btn-violet;
     }
 
     // Dark blue button
     &--dark-blue {
-      background: $dark-blue;
-      color: #fff;
-      border-color: $dark-blue;
-
-      &:hover {
-        background: transparent;
-        color: $dark-blue;
-        border-color: $dark-blue;
-      }
+      @extend .btn-dark-blue;
     }
 
     // Teal button
     &--teal {
-      background: $main-color;
-      color: #fff;
-      border-color: $main-color;
-
-      &:hover {
-        background: transparent;
-        color: $main-color;
-        border-color: $main-color;
-      }
+      @extend .btn-teal;
     }
   }
 }
