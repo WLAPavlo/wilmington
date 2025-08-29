@@ -82,6 +82,21 @@
             ]
         },
         {
+            "key": "field_header_cta_button",
+            "label": "Header CTA Button",
+            "name": "header_cta_button",
+            "aria-label": "",
+            "type": "link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_header_phone",
             "label": "Header Phone",
             "name": "header_phone",
@@ -89,7 +104,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -107,7 +122,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.33",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -415,5 +430,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1745938527
+    "modified": 1745938600
 }

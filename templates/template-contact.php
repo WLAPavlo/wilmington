@@ -5,6 +5,10 @@
 
 get_header(); ?>
 
+<?php if (!is_front_page() && !is_home()): ?>
+    <?php show_template('hero-banner', array('title' => get_the_title(), 'image' => get_post_thumbnail_id())); ?>
+<?php endif; ?>
+
     <main class="main-content">
         <section class="contact">
             <?php if ( have_posts() ): ?>

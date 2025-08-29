@@ -6,7 +6,9 @@
  */
 get_header(); ?>
 
-<!-- Hero banner is included in header.php for non-home pages -->
+<?php if ( ! is_front_page() && ! is_home() ): ?>
+    <?php show_template( 'hero-banner', array( 'title' => sprintf( __( 'Search Results for: %s', 'default' ), '<span>' . esc_html( get_search_query() ) . '</span>' ) ) ); ?>
+<?php endif; ?>
 
 <div class="container">
     <div class="row posts-list">

@@ -5,6 +5,8 @@
 
 get_header(); ?>
 
+<?php show_template('hero-banner', array('title' => 'Careers')); ?>
+
     <main class="main-content template-careers" style="padding: 0;">
         <div class="container">
             <div class="row">
@@ -27,7 +29,9 @@ get_header(); ?>
                                 <div class="career-item">
                                     <div class="career-item__header">
                                         <h2 class="career-item__title">
-                                            <?php the_title(); ?>
+                                            <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
+                                                <?php the_title(); ?>
+                                            </a>
                                         </h2>
                                     </div>
 
@@ -54,7 +58,7 @@ get_header(); ?>
                                         if ( $button_enabled !== '0' ):
                                             ?>
                                             <a href="<?php echo esc_url( $button_url ); ?>"
-                                               class="btn btn-teal career-item__btn"
+                                               class="btn btn-primary career-item__btn"
                                                target="<?php echo esc_attr( $button_target ); ?>"
                                                 <?php echo $button_target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
                                                 <?php echo esc_html( $button_text ); ?>

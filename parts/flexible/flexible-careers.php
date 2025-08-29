@@ -37,7 +37,11 @@ if ( empty( $careers_to_display ) ) {
                     ?>
                     <div class="career-item">
                         <div class="career-item__header">
-                            <h2 class="career-item__title"><?php echo esc_html( $career_title ); ?></h2>
+                            <h2 class="career-item__title">
+                                <a href="<?php echo esc_url( $career_permalink ); ?>" title="<?php echo esc_attr( $career_title ); ?>">
+                                    <?php echo esc_html( $career_title ); ?>
+                                </a>
+                            </h2>
                         </div>
 
                         <?php if ( $career_content ): ?>

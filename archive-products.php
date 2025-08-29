@@ -4,6 +4,8 @@
  */
 get_header(); ?>
 
+<?php show_template('hero-banner', array('title' => 'Products')); ?>
+
     <main class="main-content">
         <div class="container">
             <div class="row">

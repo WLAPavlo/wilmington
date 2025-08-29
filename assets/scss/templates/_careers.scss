@@ -73,6 +73,17 @@
   color: #434343;
   margin-bottom: 0;
 
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $main-color;
+      text-decoration: none;
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     font-size: 28px;
   }
@@ -173,8 +184,8 @@
 .career-item__btn {
   @extend .btn;
 
-  &--teal {
-    @extend .btn-teal;
+  &--primary {
+    @extend .btn-primary;
   }
 
   @include media-breakpoint-down(sm) {

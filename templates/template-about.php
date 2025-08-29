@@ -4,6 +4,10 @@
  */
 get_header(); ?>
 
+<?php if (!is_front_page() && !is_home()): ?>
+    <?php show_template('hero-banner', array('title' => get_the_title(), 'image' => get_post_thumbnail_id())); ?>
+<?php endif; ?>
+
     <main class="main-content template-about" style="padding: 0;">
         <!-- Flexible Content for About Us -->
         <?php if ( have_rows( 'flexible_content' ) ): ?>

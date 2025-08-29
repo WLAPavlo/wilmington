@@ -8,6 +8,10 @@ get_header();
 $job_title = isset( $_GET['job-title'] ) ? sanitize_text_field( $_GET['job-title'] ) : '';
 ?>
 
+<?php if (!is_front_page() && !is_home()): ?>
+    <?php show_template('hero-banner', array('title' => get_the_title(), 'image' => get_post_thumbnail_id())); ?>
+<?php endif; ?>
+
     <main class="main-content template-employment" style="padding: 0;">
         <!-- Employment Form Section -->
         <section class="module module--employment-form">
