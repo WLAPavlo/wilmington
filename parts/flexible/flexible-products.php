@@ -95,9 +95,12 @@ if ( $selected_products ) {
                         <div class="products-row" id="products-container">
                             <?php
                             // Display selected products or all products
+                            // For home page, limit to 8 products by design
+                            $posts_per_page = is_front_page() ? 8 : -1;
+
                             $args = array(
                                 'post_type' => 'products',
-                                'posts_per_page' => -1,
+                                'posts_per_page' => $posts_per_page,
                                 'post_status' => 'publish',
                                 'orderby' => 'menu_order',
                                 'order' => 'ASC'
@@ -106,6 +109,10 @@ if ( $selected_products ) {
                             if ( !empty( $selected_product_ids ) ) {
                                 $args['post__in'] = $selected_product_ids;
                                 $args['orderby'] = 'post__in';
+                                // If on home page and selected products > 8, limit to first 8
+                                if ( is_front_page() && count( $selected_product_ids ) > 8 ) {
+                                    $args['post__in'] = array_slice( $selected_product_ids, 0, 8 );
+                                }
                             }
 
                             $products_query = new WP_Query( $args );
@@ -165,6 +172,7 @@ if ( $selected_products ) {
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             var selectedProducts = <?php echo json_encode( $selected_product_ids ); ?>;
+            var isHomePage = <?php echo is_front_page() ? 'true' : 'false'; ?>;
 
             $('#products-filter').on('change', function() {
                 var selectedCategory = $(this).val();
@@ -181,7 +189,8 @@ if ( $selected_products ) {
                         action: 'filter_products',
                         nonce: ajax.nonce,
                         category: selectedCategory,
-                        selected_products: selectedProducts
+                        selected_products: selectedProducts,
+                        is_home_page: isHomePage
                     },
                     beforeSend: function() {
                         // Add smooth fade out effect

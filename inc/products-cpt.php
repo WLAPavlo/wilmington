@@ -84,9 +84,13 @@ function filter_products_callback() {
     $category = sanitize_text_field( $_POST['category'] );
     $selected_products = isset( $_POST['selected_products'] ) ? array_map( 'intval', $_POST['selected_products'] ) : array();
 
+    // Check if we're on home page for product limit
+    $is_home_page = isset( $_POST['is_home_page'] ) ? (bool) $_POST['is_home_page'] : false;
+    $posts_per_page = $is_home_page ? 8 : -1;
+
     $args = array(
         'post_type' => 'products',
-        'posts_per_page' => -1,
+        'posts_per_page' => $posts_per_page,
         'post_status' => 'publish',
         'orderby' => 'menu_order',
         'order' => 'ASC'
@@ -96,6 +100,10 @@ function filter_products_callback() {
     if ( !empty( $selected_products ) ) {
         $args['post__in'] = $selected_products;
         $args['orderby'] = 'post__in';
+        // If on home page and selected products > 8, limit to first 8
+        if ( $is_home_page && count( $selected_products ) > 8 ) {
+            $args['post__in'] = array_slice( $selected_products, 0, 8 );
+        }
     }
 
     // Add category filter if not 'all'

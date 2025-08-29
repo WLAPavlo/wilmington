@@ -199,11 +199,29 @@
 		$( 'body' ).on( 'change keyup', '.gfield input, .gfield textarea, .gfield select', function() {
 			var $field = $( this ).closest( '.gfield' );
 			if ( $field.hasClass( 'gfield_error' ) && $( this ).val().length ) {
-				$field.find( '.validation_message' ).hide();
+				$field.removeClass( 'gfield_error' );
+				$field.find( '.validation_message' ).fadeOut( 300 );
 			} else if ( $field.hasClass( 'gfield_error' ) && !$( this ).val().length ) {
-				$field.find( '.validation_message' ).show();
+				$field.find( '.validation_message' ).fadeIn( 300 );
 			}
 		} );
+
+		/**
+		 * Enhanced form validation styling
+		 */
+		$( document ).on( 'gform_post_render', function( event, formId, currentPage ) {
+			// Add enhanced styling to required fields
+			$( '#gform_' + formId + ' .gfield_required' ).each( function() {
+				var $field = $( this ).closest( '.gfield' );
+				$field.addClass( 'gfield-required' );
+			});
+
+			// Enhanced error field highlighting
+			$( '#gform_' + formId + ' .gfield_error' ).each( function() {
+				var $field = $( this );
+				$field.find( 'input, textarea, select' ).addClass( 'error-highlight' );
+			});
+		});
 
 		/**
 		 * Close responsive menu on orientation change
@@ -399,3 +417,55 @@
 }( jQuery ));
 
 
+// Smooth scroll to products section
+document.addEventListener('DOMContentLoaded', function() {
+
+	// Function for smooth scrolling
+	function smoothScrollTo(targetElement, duration = 800) {
+		const targetPosition = targetElement.offsetTop;
+		const startPosition = window.pageYOffset;
+		const distance = targetPosition - startPosition;
+		let startTime = null;
+
+		function animation(currentTime) {
+			if (startTime === null) startTime = currentTime;
+			const timeElapsed = currentTime - startTime;
+			const run = ease(timeElapsed, startPosition, distance, duration);
+			window.scrollTo(0, run);
+			if (timeElapsed < duration) requestAnimationFrame(animation);
+		}
+
+		// Easing function for smooth animation
+		function ease(t, b, c, d) {
+			t /= d / 2;
+			if (t < 1) return c / 2 * t * t + b;
+			t--;
+			return -c / 2 * (t * (t - 2) - 1) + b;
+		}
+
+		requestAnimationFrame(animation);
+	}
+
+	// Add click handlers for elements that should scroll to products
+	const scrollTriggers = document.querySelectorAll([
+		'.scroll-down',           // Your existing scroll-down arrow
+		'[href="#products"]',     // Any link with href="#products"
+		'[data-scroll="products"]' // Any element with data-scroll="products"
+	].join(', '));
+
+	scrollTriggers.forEach(trigger => {
+		trigger.addEventListener('click', function(e) {
+			e.preventDefault();
+
+			// Try to find products section by different possible selectors
+			const productsSection = document.querySelector('#products') ||
+				document.querySelector('.products') ||
+				document.querySelector('[data-section="products"]') ||
+				document.querySelector('#main-content'); // Fallback to your existing target
+
+			if (productsSection) {
+				smoothScrollTo(productsSection);
+			}
+		});
+	});
+});

@@ -84,6 +84,59 @@ body .gform_wrapper .gfield_radio label {
   text-align: left !important;
 }
 
+// Enhanced error styling for employment forms
+body .gform_wrapper .gfield_error {
+  input, textarea, select {
+    border-color: #dc3545 !important;
+    background-color: rgba(220, 53, 69, 0.05) !important;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1) !important;
+  }
+
+  .gfield_label {
+    color: #dc3545 !important;
+    font-weight: 600 !important;
+  }
+
+  .validation_message {
+    display: block !important;
+    position: relative !important;
+    background: #dc3545 !important;
+    color: #fff !important;
+    padding: 8px 12px !important;
+    margin-top: 8px !important;
+    border-radius: 4px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2) !important;
+
+    &::before {
+      content: '\f071' !important;
+      font-family: $fa !important;
+      font-weight: 900 !important;
+      margin-right: 6px !important;
+    }
+  }
+}
+
+// Enhanced validation error message
+body .gform_wrapper .validation_error {
+  background: #f8d7da !important;
+  border: 2px solid #dc3545 !important;
+  color: #721c24 !important;
+  padding: 15px 20px !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.15) !important;
+
+  &::before {
+    content: '\f071' !important;
+    font-family: $fa !important;
+    font-weight: 900 !important;
+    margin-right: 8px !important;
+    color: #dc3545 !important;
+  }
+}
+
 body .gform_wrapper .gform_button {
   @extend .btn-form;
   background-color: $main-color !important;
