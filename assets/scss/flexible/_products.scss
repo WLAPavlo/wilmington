@@ -133,8 +133,11 @@
   gap: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding-right: 20px;
+  padding-right: 25px;
 
+  @include media-breakpoint-down(sm) {
+    padding-right: 0;
+  }
 
   a{
     font-size: 20px;
@@ -145,6 +148,8 @@
   &--right {
     justify-content: flex-end;
     margin-top: 6rem;
+    text-align: end;
+    padding-right: 0;
   }
 
   &--bottom {

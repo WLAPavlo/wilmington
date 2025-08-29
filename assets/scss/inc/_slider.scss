@@ -16,32 +16,34 @@
 
 #home-slider {
 	position: relative;
-	height: 50vh; // Changed from 100vh to 50vh
-	min-height: 400px; // Reduced minimum height
+	height: 50vh;
+	min-height: 400px;
 	overflow: hidden;
 
-	@include media-breakpoint-down(md) {
-		height: 45vh; // Slightly smaller on tablets
+	@media (max-width: 1199px) and (min-width: 992px) {
+		margin-top: 0;
+		height: 45vh;
 		min-height: 350px;
 	}
 
-	@include media-breakpoint-down(sm) {
-		height: 40vh; // Even smaller on mobile
+	@media (max-width: 991px) {
+		margin-top: 60px;
+		height: 40vh;
 		min-height: 300px;
 	}
 
 	.slick-slide {
 		width: 100%;
-		height: 50vh; // Changed from 100vh to 50vh
+		height: 50vh;
 		min-height: 400px;
 		transition: height 0.3s ease;
 
-		@include media-breakpoint-down(md) {
+		@media (max-width: 1199px) and (min-width: 992px) {
 			height: 45vh;
 			min-height: 350px;
 		}
 
-		@include media-breakpoint-down(sm) {
+		@media (max-width: 991px) {
 			height: 40vh;
 			min-height: 300px;
 		}
@@ -81,6 +83,9 @@
 			font-weight: 700;
 			margin-bottom: 1.5rem;
 			line-height: 1.2;
+
+			@include media-breakpoint-down(md) {
+			}
 		}
 
 		p {

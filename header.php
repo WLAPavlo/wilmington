@@ -146,7 +146,7 @@ endif; ?>
                 <div class="col-12">
                     <?php if ( has_nav_menu( 'header-menu' ) ) : ?>
                         <div class="navbar navbar-expand-md">
-                            <nav class="collapse navbar-collapse" id="mainMenu">
+                            <nav class="collapse navbar" id="mainMenu">
                                 <?php wp_nav_menu( array(
                                     'theme_location' => 'header-menu',
                                     'menu_class'     => 'header-menu navbar-nav flex-wrap w-100',
